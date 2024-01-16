@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes as HardWareRoutes  , Route} from 'react-router' 
+import { Routes as HardWareRoutes, Route} from 'react-router' 
 import WelcomePage from '../pages/welcomePage/WelcomePage'
 import { StartPage } from '../pages/StartPage/StartPage'
 
