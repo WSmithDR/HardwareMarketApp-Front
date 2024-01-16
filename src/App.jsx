@@ -1,12 +1,13 @@
-import { StartPage } from "./pages/StartPage/StartPage"
+import Routes from "./routes/Routes"
+
+
 
 function App() {
  
 
   return (
     <>
-     hola
-     <StartPage/>
+     <Routes/>
     </>
   )
 }
