@@ -1,9 +1,18 @@
 // import React from 'react'
 
+import { Navbar } from "../../components/Navbar";
+
 export const StartPage = () => {
   return (
-    <div className='flex flex-row-reverse justify-center h-96 w-28 bg-black '>
-        <h1 className="text-3xl font-bold underline text-cyan-700"> Hello world</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-customColor">
+      {/* Contenido de tu página */}
+      <Navbar />
+
+      <h1 className="text-3xl text-center font-josefin">
+        Comienza A Comprar <br /> O vender tus <br /> productos
+      </h1>
+
+      <button className="bg-black text-white h-8">Comenzar</button>
     </div>
-  )
-}
+  );
+};
