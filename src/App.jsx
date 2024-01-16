@@ -1,4 +1,4 @@
-
+import { StartPage } from "./pages/StartPage/StartPage"
 
 function App() {
  
@@ -6,6 +6,7 @@ function App() {
   return (
     <>
      hola
+     <StartPage/>
     </>
   )
 }
