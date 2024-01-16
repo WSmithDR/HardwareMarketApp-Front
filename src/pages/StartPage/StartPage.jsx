@@ -12,7 +12,12 @@ export const StartPage = () => {
         Comienza A Comprar <br /> O vender tus <br /> productos
       </h1>
 
-      <button className="bg-black text-white h-8">Comenzar</button>
+    <div className="p-12">
+      <button className="bg-black text-white h-9 w-40">Comenzar</button>
+    </div>
+
+    
+
     </div>
   );
 };
