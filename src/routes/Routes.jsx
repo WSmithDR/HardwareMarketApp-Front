@@ -12,11 +12,11 @@ const Routes = () => {
     <Route path='/' element = {<WelcomePage/>}></Route>
     <Route path= "/startPage" element = {<StartPage/>}></Route>
     <Route path= "/iniciarSesion" element = {<Login />}></Route>
+    <Route path='/register' element = {<Register/>}></Route>
     <Route path='/login' element = {<Login/>}></Route>
-    <Route path='/register' element ={ <Register/>}></Route>
    </HardWareRoutes>
    </>
   )
 }
 
-export default Routes
+export default Routes;
