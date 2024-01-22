@@ -1,18 +1,30 @@
-// import React from 'react'
-
-// import { useFormik } from "formik";
+// import React, { useState } from 'react'
 import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { registerUserFetch } from './registerUtils';
+
 
 export const Register = () => {
   const navigator = useNavigate();
+  const [msg , setMsg] = useState()
+
+  const  [view, setView] = useState(true);
+
+  const handleView = () => {
+    setView(
+      !view
+    )
+    console.log(view);
+    // console.log('se ve');
+  }
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-colorButtons">
       <Formik
         initialValues={{
-          firstName: "",
-          lastName: "",
+          first_name: "",
+          last_name: "",
           age: "",
           email: "",
           password: "",
@@ -21,16 +33,16 @@ export const Register = () => {
           const errors = {};
 
           // Campo Primer nombre
-          if (!values.firstName) {
-            errors.firstName = "Ingresa tu nombre";
-          } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/.test(values.firstName)) {
-            errors.firstName = "Nombre invalido";
+          if (!values.first_name) {
+            errors.first_name = "Ingresa tu nombre";
+          } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/.test(values.first_name)) {
+            errors.first_name = "Nombre invalido";
           }
 
           // Campo Apellido
-          if (!values.lastName) {
-            errors.lastName = "Ingresa tu apellido";
-          } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/.test(values.lastName)) {
+          if (!values.last_name) {
+            errors.last_name = "Ingresa tu apellido";
+          } else if (!/^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+$/.test(values.last_name)) {
             errors.lastName = "Apellido invalido";
           }
 
@@ -53,19 +65,18 @@ export const Register = () => {
           // Campo password
           if (!values.password) {
             errors.password = "Ingresa una contrasena";
-          } else if (
-            !/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-              values.password
-            )
-          ) {
+          } else if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/i.test(values.password)) {
             errors.password = "contrasena no valida";
           }
 
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={async(values, { setSubmitting }) => {
+          const fetching = await registerUserFetch(values)
+          setMsg(fetching.data.message)
+          
           setTimeout(() => {
-            // alert(JSON.stringify(values, null, 2));
+
             setSubmitting(false);
           }, 400);
         }}
@@ -95,28 +106,31 @@ export const Register = () => {
               <div className="flex flex-col justify-center items-center">
                 <input
                   type="name"
-                  name="firstName"
+                  name="first_name"
                   placeholder="Nombre"
                   className=" bg-[#C8C7C7] m-3 rounded-[10px] font-josefin p-4 w-[330px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] shadow-xl"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.firstName}
+                  value={values.first_name}
+                  
                 />
+                
                 <p className="text-red-700">
-                  {errors.firstName && touched.firstName && errors.firstName}
+                  {errors.first_name && touched.first_name && errors.first_name}
                 </p>
 
                 <input
                   type="name"
-                  name="lastName"
+
+                  name="last_name"
                   placeholder="Apellido"
                   className=" bg-[#C8C7C7] m-3 rounded-[10px] font-josefin p-4 w-[330px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] shadow-xl"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.lastName}
+                  value={values.last_name}
                 />
                 <p className="text-red-700">
-                  {errors.lastName && touched.lastName && errors.lastName}
+                  {errors.last_name && touched.last_name && errors.last_name}
                 </p>
 
                 <input
@@ -145,9 +159,9 @@ export const Register = () => {
                   {errors.email && touched.email && errors.email}
                 </p>
                 <input
-                  type="password"
+                  type={view ? 'password' : 'text'}
                   name="password"
-                  placeholder="Contrasena"
+                  placeholder="Contraseña"
                   className=" bg-[#C8C7C7] m-3 rounded-[10px] font-josefin p-4 w-[330px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] shadow-xl"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -155,7 +169,17 @@ export const Register = () => {
                 />
                 <p className="text-red-700">
                   {errors.password && touched.password && errors.password}
-                </p>          
+                </p>     
+                
+                  {
+                    view ? (
+                     <img src="./public/images/viewEyes.png" alt="eyes" onClick={handleView}/> 
+                    ) : (
+                      <img src="./public/images/password.png" alt="pass" onClick={handleView}/>
+                    )
+                  }
+                
+                <p>{msg}</p>     
 
                 <button
                   className="bg-colorButtons text-white w-[130px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] m-5 font-josefin shadow-xl"
