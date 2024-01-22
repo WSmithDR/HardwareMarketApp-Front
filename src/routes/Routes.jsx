@@ -1,9 +1,8 @@
-import React from "react";
 import { Routes as HardWareRoutes, Route } from "react-router";
-import WelcomePage from "../pages/welcomePage/WelcomePage";
-import { StartPage } from "../pages/StartPage/StartPage";
-import { Login } from "../pages/login/Login";
-import {Register} from "../pages/register/Register"
+import { StartPage } from "../features/StartPage/StartPage";
+import { Login } from "../features/login/Login";
+import { Register } from "../features/register/Register";
+import WelcomePage from "../features/welcomePage/WelcomePage";
 
 const Routes = () => {
   return (
