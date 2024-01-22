@@ -17,13 +17,12 @@ const WelcomePage = () => {
     
       </div>
       <div className='text-center'>
-      <h1 className="text-3xl">
+      <h1 className="text-3xl font-josefin">
       Hardware Market
     </h1>
-    <p>BUEN ESTADO BUENOS PRODUCTOS</p>
+    <p className=''>BUEN ESTADO BUENOS PRODUCTOS</p>
       </div>
       <img className='w-10' src='/public/images/giftLoad.gif'></img>
-  
     </div>
    
   )
