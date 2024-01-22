@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 export const Navbar = () => {
   return (
@@ -8,6 +8,7 @@ export const Navbar = () => {
           <a href="#" className="text-black font-josefin shadow-xl">Home</a>
           <a href="#" className="text-black font-josefin shadow-xl">About</a>
           <a href="#" className="text-black font-josefin shadow-xl">Contact</a>
+          <a href="/register" className="text-black font-josefin shadow-xl">Register</a>
         </div>
       </div>
     </nav>
