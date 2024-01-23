@@ -10,6 +10,10 @@ export default {
       colors: {
         customColor: '#EEEBEB',
         colorButtons: '#01242F',
+      },
+      width:{
+        sideBarWidth:"414px",
+        productWidth:"923px"
       }
     },
   },
