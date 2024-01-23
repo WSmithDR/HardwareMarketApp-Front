@@ -1,63 +1,104 @@
 // import React from "react";
 import { useNavigate } from "react-router";
 import { Formik, Form, Field } from "formik";
+import { useState } from "react";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const [view, setView] = useState(true);
+
+  const handleView = () => {
+    setView(!view);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-colorButtons  font-josefin ">
       <div className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[500px]  bg-customColor rounded-[10px]">
-        <div className=" justify-center  items-center w-[80%] h-4/6 flex flex-col gap-10  p-2.5 ">
+        <div className=" justify-center  items-center w-[80%] h-4/6 flex flex-col gap-10  p-2.5">
           <h1 className="text-[36px] text-center font-josefin">
             Iniciar Sesión
           </h1>
-        <Formik
-          initialValues={{email : "" , password : ""}}
-          validate={values =>{
-            const errors = {}
-            if(!values.email){
-              errors.email = "Campo obligatorio"
-            }
-            if(!values.password){
-              errors.password = "Campo obligatorio"
-            }else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/i.test(values.password)){
-              errors.password = "min 8 caracteres , 1 mayuscula 1 minuscula 1 numero"
-            }
-            return errors
-            
-          } }
-          onSubmit={values => {
-            console.log(values)
-          }}
-        >
-        {({errors , touched}) => (
-           <Form className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around">
-           <Field
-             className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F]  outline-none  "
-             placeholder="Telefono/Nombre de usuario/Correo"
-             name = "email"
-           ></Field>
-            {errors.email && touched.email ? (
-              <p className="text-[red]">{errors.email}</p>
-            ) : (null)}
-           <Field
-             className="max-[425px]:w-[100%]  min-[768px]:w-[70%]  w-[50%] min-[1440px]:w-[400px]  h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none "
-             placeholder="Contraseña"
-             name = "password"
-             type = "password"
-         
-           ></Field>
-           {errors.password && touched.password ? (
-            <p className="text-[red]">{errors.password}</p>
-           ) : (null)}
-           <button className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px]" type="submit">
-             Iniciar Sesion
-           </button>
-           </Form>
-        )}
-       
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validate={(values) => {
+              const errors = {};
+              if (!values.email) {
+                errors.email = "Campo obligatorio";
+              }
+              if (!values.password) {
+                errors.password = "Campo obligatorio";
+              } else if (
+                !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/i.test(
+                  values.password
+                )
+              ) {
+                errors.password =
+                  "min 8 caracteres , 1 mayuscula 1 minuscula 1 numero";
+              }
+              return errors;
+            }}
+            onSubmit={(values) => {
+              console.log(values);
+            }}
+          >
+            {({ errors, touched }) => (
+              <Form className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around">
+                <Field
+                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F]  outline-none  "
+                  placeholder="Telefono/Nombre de usuario/Correo"
+                  name="email"
+                ></Field>
+                {errors.email && touched.email ? (
+                  <p className="text-[red]">{errors.email}</p>
+                ) : null}
+                <Field
+                  className="max-[425px]:w-[100%]  min-[768px]:w-[70%]  w-[50%] min-[1440px]:w-[400px]  h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none "
+                  placeholder="Contraseña"
+                  name="password"
+                  type={view ? "password" : "text"}
+                >
+                </Field>
+
+                <div>
+                    {view ? (
+                      <img
+                        src="./public/images/closedEye.png"
+                        alt="eyes"
+                        onClick={handleView}
+                        className="flex w-[20px] h-auto right-9 relative cursor-pointer"
+                      />
+                    ) : (
+                      <img
+                        src="
+                      ./public/images/openEye.png"
+                        alt="pass"
+                        onClick={handleView}
+                        className="flex w-[20px] h-auto right-9 relative cursor-pointer"
+                      />
+                    )}
+                    {view ? (
+                      <p className="flex relative bottom-5 font-josefin">
+                        Mostrar Contraseña
+                      </p>
+                    ) : (
+                      <p className="flex relative bottom-5 font-josefin">
+                        Ocultar Contraseña
+                      </p>
+                    )}
+                  </div>
+
+                {errors.password && touched.password ? (
+                  <p className="text-[red]">{errors.password}</p>
+                ) : null}
+                <button
+                  className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px]"
+                  type="submit"
+                >
+                  Iniciar Sesion
+                </button>
+              </Form>
+            )}
           </Formik>
-        
         </div>
         {/* separadores del login lineas y circulo */}
         <div

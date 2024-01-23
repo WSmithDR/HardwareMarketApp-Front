@@ -1,10 +1,9 @@
-import { Navbar } from "../../../components/Navbar"
+import { StoreNavBar } from "../containers/StoreNavBar"
 
 export const StoreScreen = () => {
   return (
-    <div>
-        <Navbar/>
-        <Products merchandising={merchandising}></Products>
+    <div className="flex flex-col justify-center">
+        <StoreNavBar/>
     </div>
   )
 }

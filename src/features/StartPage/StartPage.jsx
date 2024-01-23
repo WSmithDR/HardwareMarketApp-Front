@@ -10,7 +10,7 @@ export const StartPage = () => {
       {/* Contenido de tu página */}
       <Navbar />
 
-      <h1 className="text-3xl text-center font-josefin relative bottom-4">
+      <h1 className="text-3xl text-center font-josefin relative bottom-4 ">
         Comienza A Comprar <br /> O vender tus <br /> productos
       </h1>
 

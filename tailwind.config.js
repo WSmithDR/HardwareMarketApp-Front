@@ -1,18 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html",
-  "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        josefin: ['Josefin Sans', 'sans-serif'],
+        josefin: ["Josefin Sans", "sans-serif"],
       },
       colors: {
-        customColor: '#EEEBEB',
-        colorButtons: '#01242F',
-      }
+        customColor: "#EEEBEB",
+        colorButtons: "#01242F",
+        colorBlueStar1: "#05607C",
+      },
     },
   },
   plugins: [],
-}
-
+};

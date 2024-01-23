@@ -1,23 +1,18 @@
 // import React, { useState } from 'react'
-import { Formik } from "formik";
+import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { registerUserFetch } from './registerUtils';
-
+import { registerUserFetch } from "./registerUtils";
 
 export const Register = () => {
   const navigator = useNavigate();
-  const [msg , setMsg] = useState()
+  const [msg, setMsg] = useState();
 
-  const  [view, setView] = useState(true);
+  const [view, setView] = useState(true);
 
   const handleView = () => {
-    setView(
-      !view
-    )
-    console.log(view);
-    // console.log('se ve');
-  }
+    setView(!view);
+  };
 
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-colorButtons">
@@ -65,18 +60,21 @@ export const Register = () => {
           // Campo password
           if (!values.password) {
             errors.password = "Ingresa una contrasena";
-          } else if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/i.test(values.password)) {
+          } else if (
+            !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/i.test(
+              values.password
+            )
+          ) {
             errors.password = "contrasena no valida";
           }
 
           return errors;
         }}
-        onSubmit={async(values, { setSubmitting }) => {
-          const fetching = await registerUserFetch(values)
-          setMsg(fetching.data.message)
-          
-          setTimeout(() => {
+        onSubmit={async (values, { setSubmitting }) => {
+          const fetching = await registerUserFetch(values);
+          setMsg(fetching.data.message);
 
+          setTimeout(() => {
             setSubmitting(false);
           }, 400);
         }}
@@ -92,39 +90,34 @@ export const Register = () => {
           /* and other goodies */
         }) => (
           <div
-            className="flex flex-col justify-center items-center
-           bg-customColor w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] 
-           xl:w-[44%] 2xl:w-[40%] mx-auto h-[80%] sm:h-[75%] md:h-[70%] 
-           lg:h-[65%] xl:h-[60%] 2xl:h-[55%] rounded-[20px]"
+            className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[590px]  bg-customColor rounded-[10px]"
           >
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around" >
               <div className="flex flex-col items-center justify-center p-7">
-                <h1 className=" text-black text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-josefin">
+                <h1 className="text-[36px] text-center font-josefin">
                   Registrate
                 </h1>
               </div>
-              <div className="flex flex-col justify-center items-center">
+              <div className="justify-center items-center w-[80%] flex flex-col gap-2 m-0">
                 <input
                   type="name"
                   name="first_name"
                   placeholder="Nombre"
-                  className=" bg-[#C8C7C7] m-3 rounded-[10px] font-josefin p-4 w-[330px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] shadow-xl"
+                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.first_name}
-                  
                 />
-                
+
                 <p className="text-red-700">
                   {errors.first_name && touched.first_name && errors.first_name}
                 </p>
 
                 <input
                   type="name"
-
                   name="last_name"
                   placeholder="Apellido"
-                  className=" bg-[#C8C7C7] m-3 rounded-[10px] font-josefin p-4 w-[330px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] shadow-xl"
+                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.last_name}
@@ -137,7 +130,7 @@ export const Register = () => {
                   type="age"
                   name="age"
                   placeholder="Edad"
-                  className=" bg-[#C8C7C7] m-3 rounded-[10px] font-josefin p-4 w-[330px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] shadow-xl"
+                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.age}
@@ -150,7 +143,7 @@ export const Register = () => {
                   type="email"
                   name="email"
                   placeholder="Correo electronico"
-                  className=" bg-[#C8C7C7] m-3 rounded-[10px] font-josefin p-4 w-[330px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] shadow-xl"
+                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
@@ -159,50 +152,68 @@ export const Register = () => {
                   {errors.email && touched.email && errors.email}
                 </p>
                 <input
-                  type={view ? 'password' : 'text'}
+                  type={view ? "password" : "text"}
                   name="password"
                   placeholder="Contraseña"
-                  className=" bg-[#C8C7C7] m-3 rounded-[10px] font-josefin p-4 w-[330px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] shadow-xl"
+                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
                 />
-                <p className="text-red-700">
-                  {errors.password && touched.password && errors.password}
-                </p>     
                 
+                  <div>
+                  {view ? (
+                  <img
+                    src="./public/images/closedEye.png"
+                    alt="eyes"
+                    onClick={handleView}
+                    className="flex w-[20px] h-auto right-9 relative cursor-pointer"
+                  />
+                ) : (
+                  <img
+                    src="
+                      ./public/images/openEye.png"
+                    alt="pass"
+                    onClick={handleView}
+                    className="flex w-[20px] h-auto right-9 relative cursor-pointer"
+                  />
+                )}
                   {
-                    view ? (
-                     <img src="./public/images/viewEyes.png" alt="eyes" onClick={handleView}/> 
-                    ) : (
-                      <img src="./public/images/password.png" alt="pass" onClick={handleView}/>
-                    )
+                    view ? <p className="flex relative bottom-5 font-josefin">Mostrar Contraseña</p> : <p className="flex relative bottom-5 font-josefin">Ocultar Contraseña</p>
                   }
+                  </div>
                 
-                <p>{msg}</p>     
+                  <p className="text-red-700">
+                  {errors.password && touched.password && errors.password}
+                </p>
+
+                <p>{msg}</p>
 
                 <button
-                  className="bg-colorButtons text-white w-[130px] h-[35px] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%] m-5 font-josefin shadow-xl"
+                  className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px] font-josefin"
                   type="submit"
                   disabled={isSubmitting}
                 >
                   Resgistrate
                 </button>
 
-                <div className="items-center flex justify-between w-[80%] h-[40px]">
+                
+              </div>
+            </Form>
+            <div className="items-center flex justify-between w-[80%] h-[40px] relative top-4">
                   <div className="w-[40%] border border-[#000000]"></div>
                   <div className="w-[20px] h-[20px]  border-[#000000] rounded-[100%] bg-[#000000]"></div>
                   <div className="w-[40%] border border-[#000000]"></div>
                 </div>
 
                 <div className="flex flex-row justify-center items-center">
-                  <p className="font-josefin text-center">
+                  <p className="font-josefin text-center relative top-6">
                     Al resgistrarte, aceptas nuestras Condiciones de uso y
                     Politica de privacidad.
                   </p>
                 </div>
                 <div className="flex flex-row justify-center items-center">
-                  <p className="flex font-josefin p-5 ">
+                  <p className="flex font-josefin p-5 relative top-2 ">
                     Ya tienes una cuenta?
                     <span
                       className="relative left-2 text-[#05607C] cursor-pointer"
@@ -212,11 +223,11 @@ export const Register = () => {
                     </span>
                   </p>
                 </div>
-              </div>
-            </form>
           </div>
         )}
+        
       </Formik>
+      
     </div>
   );
 };
