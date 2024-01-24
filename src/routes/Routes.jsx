@@ -5,7 +5,7 @@ import { Login } from "../features/login/Login";
 import { StoreScreen } from "../features/store/roots/StoreScreen";
 import WelcomePage from "../features/welcomePage/WelcomePage";
 import { About } from "../features/About/About";
-import { StoreScreen } from "../features/store/roots/StoreScreen";
+
 
 const Routes = () => {
   return (
