@@ -9,7 +9,11 @@ export default {
       colors: {
         customColor: "#EEEBEB",
         colorButtons: "#01242F",
-        colorBlueStar1: "#05607C",
+        colorStar: "#05607C",
+      },
+      width: {
+        sideBarWidth: "414px",
+        productWidth: "923px",
       },
     },
   },
