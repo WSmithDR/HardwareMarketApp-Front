@@ -8,7 +8,7 @@ export const Navbar = () => {
         <div className="space-x-6">
           <a href="/startPage" className="text-black font-josefin">Inicio</a>
           <a href="/about" className="text-black font-josefin  ">Sobre Nosotros</a>
-          <a href="#" className="text-black font-josefin ">Contacto</a>
+          <a href="/contact" className="text-black font-josefin ">Contacto</a>
           <a href='/login' className="text-black font-josefin" >Iniciar Sesión</a>
         </div>
       </div>
