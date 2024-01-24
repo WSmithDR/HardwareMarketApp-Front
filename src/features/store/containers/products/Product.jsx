@@ -9,7 +9,7 @@ const text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem v
 
 export const Product = ({img,name,price, condition, rating})=>{
     return(
-        <div className="col-span-3 mx-8 my-8">
+        <div className="col-span-2 mx-8 my-8">
             <div className="grid grid-cols-4 bg-bgProduct indent-[10px]">
                 <div className="grid col-[1/2]">
                     <Img url={img} alt={name}/>

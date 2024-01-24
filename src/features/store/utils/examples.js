@@ -29,5 +29,19 @@ export const examples = [
         condition:"Nuevo",
         rating:"5 estrellas"
     },
+    {
+        name:"Radeon rx 550",
+        img:example1,
+        price:"$500",
+        condition:"Nuevo",
+        rating:"5 estrellas"
+    },
+    {
+        name:"Radeon rx 550",
+        img:example1,
+        price:"$500",
+        condition:"Nuevo",
+        rating:"5 estrellas"
+    },
 
 ]

@@ -1,9 +1,9 @@
-import React from 'react'
-import SwitchButton from './SwitchButton'
+
+import SwitchButton from '../../components/filter/SwitchButton'
 
 const Filters = () => {
   return (
-  <div className=' w-[300px] h-[500px] flex flex-col items-start mx-[200px] p-10 gap-10'>
+  <div className=' w-[300px] h-[500px] flex flex-col items-start  p-10 gap-10'>
   <div>
   <h1 className='text-[20px]' >Tarjetas de video</h1>
  <p>10 Resultados</p>

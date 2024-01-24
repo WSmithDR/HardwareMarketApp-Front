@@ -3,8 +3,8 @@ import { Product } from "./Product"
 
 export const Products = () =>{
     return(
-        <div className="col-[5/e]">
-            <div className="grid grid-cols-3">
+        <div className="col-[3/e]">
+            <div className="grid grid-cols-4">
                 {
                     examples.map((product, index)=>(
                     <Product 

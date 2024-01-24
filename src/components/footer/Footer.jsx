@@ -1,9 +1,8 @@
-import React from 'react'
 
 const Footer = () => {
   return (
     <>
-    <footer className=' h-[80px] w-[100%]  bg-colorButtons  '>
+    <footer className=' h-[80px] w-[99%]  bg-colorButtons  p-3 m-2 rounded-[10px] fixed bottom-0'>
     <div className='flex justify-between' >
         <div className='w-[50%] h-[100%]  flex flex-col justify-between text-[white] items-center'>
         <p className='cursor-pointer hover:text-[#05607C]'>Contacto</p>
