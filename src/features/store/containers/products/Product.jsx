@@ -5,8 +5,6 @@ import { PrdCondition } from "../../components/Product/PrdCondition"
 import { PrdRating } from "../../components/Product/PrdRating"
 import { Price } from "../../components/Product/Price"
 
-const text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem vero quas maiores cum inventore perspiciatis voluptas sunt! Ex totam deleniti beatae sed culpa, eos ipsum enim magnam voluptatum eius veniam."
-
 export const Product = ({img,name,price, condition, rating})=>{
     return(
         <div className="col-span-2 mx-8 my-8">
