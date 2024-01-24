@@ -1,6 +1,6 @@
 export const StoreNavBar = () => {
   return (
-    <nav className="bg-colorButtons p-3 m-2 rounded-[10px] ">
+    <nav className="bg-colorButtons p-3 m-2 rounded-[10px]">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo o nombre de la empresa */}
         <div className="text-white font-bold text-lg p-3">
@@ -22,7 +22,7 @@ export const StoreNavBar = () => {
           />
           <div
             className="h-10 
-              rounded-r-lg w-14 p-2 font-josefin bg-colorBlueStar1
+              rounded-r-lg w-14 p-2 font-josefin bg-colorStar
               cursor-pointer flex items-center justify-center
               "
           >
@@ -48,7 +48,7 @@ export const StoreNavBar = () => {
         <div className="flex space-x-7">
           <a
             href=""
-            className="font-josefin text-colorBlueStar1 flex flex-col-reverse relative right-1 text-mx"
+            className="font-josefin text-colorStar flex flex-col-reverse relative right-1 text-mx"
           >
             <img
               src="./public/images/carFast.png"
