@@ -89,10 +89,11 @@ export const Register = () => {
           isSubmitting,
           /* and other goodies */
         }) => (
-          <div
-            className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[590px]  bg-customColor rounded-[10px]"
-          >
-            <Form onSubmit={handleSubmit} className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around" >
+          <div className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[590px]  bg-customColor rounded-[10px]">
+            <Form
+              onSubmit={handleSubmit}
+              className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around"
+            >
               <div className="flex flex-col items-center justify-center p-7">
                 <h1 className="text-[36px] text-center font-josefin">
                   Registrate
@@ -103,7 +104,7 @@ export const Register = () => {
                   type="name"
                   name="first_name"
                   placeholder="Nombre"
-                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
+                  className="shadow-lg max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.first_name}
@@ -117,7 +118,7 @@ export const Register = () => {
                   type="name"
                   name="last_name"
                   placeholder="Apellido"
-                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
+                  className="shadow-lg max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.last_name}
@@ -130,7 +131,7 @@ export const Register = () => {
                   type="age"
                   name="age"
                   placeholder="Edad"
-                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
+                  className="shadow-lg max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.age}
@@ -143,7 +144,7 @@ export const Register = () => {
                   type="email"
                   name="email"
                   placeholder="Correo electronico"
-                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
+                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] shadow-lg bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
@@ -155,79 +156,81 @@ export const Register = () => {
                   type={view ? "password" : "text"}
                   name="password"
                   placeholder="Contraseña"
-                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
+                  className="shadow-lg max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] font-josefin w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
                 />
-                
-                  <div>
+
+                <div>
                   {view ? (
-                  <img
-                    src="./public/images/closedEye.png"
-                    alt="eyes"
-                    onClick={handleView}
-                    className="flex w-[20px] h-auto right-9 relative cursor-pointer"
-                  />
-                ) : (
-                  <img
-                    src="
+                    <img
+                      src="./public/images/closedEye.png"
+                      alt="eyes"
+                      onClick={handleView}
+                      className="flex w-[20px] h-auto right-9 relative cursor-pointer"
+                    />
+                  ) : (
+                    <img
+                      src="
                       ./public/images/openEye.png"
-                    alt="pass"
-                    onClick={handleView}
-                    className="flex w-[20px] h-auto right-9 relative cursor-pointer"
-                  />
-                )}
-                  {
-                    view ? <p className="flex relative bottom-5 font-josefin">Mostrar Contraseña</p> : <p className="flex relative bottom-5 font-josefin">Ocultar Contraseña</p>
-                  }
-                  </div>
-                
-                  <p className="text-red-700">
+                      alt="pass"
+                      onClick={handleView}
+                      className="flex w-[20px] h-auto right-9 relative cursor-pointer"
+                    />
+                  )}
+                  {view ? (
+                    <p className="flex relative bottom-5 font-josefin">
+                      Mostrar Contraseña
+                    </p>
+                  ) : (
+                    <p className="flex relative bottom-5 font-josefin">
+                      Ocultar Contraseña
+                    </p>
+                  )}
+                </div>
+
+                <p className="text-red-700">
                   {errors.password && touched.password && errors.password}
                 </p>
 
                 <p>{msg}</p>
 
                 <button
-                  className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px] font-josefin"
+                  className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px] font-josefin cursor-pointer"
                   type="submit"
                   disabled={isSubmitting}
                 >
                   Resgistrate
                 </button>
-
-                
               </div>
             </Form>
             <div className="items-center flex justify-between w-[80%] h-[40px] relative top-4">
-                  <div className="w-[40%] border border-[#000000]"></div>
-                  <div className="w-[20px] h-[20px]  border-[#000000] rounded-[100%] bg-[#000000]"></div>
-                  <div className="w-[40%] border border-[#000000]"></div>
-                </div>
+              <div className="w-[40%] border border-[#000000]"></div>
+              <div className="w-[20px] h-[20px]  border-[#000000] rounded-[100%] bg-[#000000]"></div>
+              <div className="w-[40%] border border-[#000000]"></div>
+            </div>
 
-                <div className="flex flex-row justify-center items-center">
-                  <p className="font-josefin text-center relative top-6">
-                    Al resgistrarte, aceptas nuestras Condiciones de uso y
-                    Politica de privacidad.
-                  </p>
-                </div>
-                <div className="flex flex-row justify-center items-center">
-                  <p className="flex font-josefin p-5 relative top-2 ">
-                    Ya tienes una cuenta?
-                    <span
-                      className="relative left-2 text-[#05607C] cursor-pointer"
-                      onClick={() => navigator("/login")}
-                    >
-                      Iniciar Sesion
-                    </span>
-                  </p>
-                </div>
+            <div className="flex flex-row justify-center items-center">
+              <p className="font-josefin text-center relative top-6">
+                Al resgistrarte, aceptas nuestras Condiciones de uso y Politica
+                de privacidad.
+              </p>
+            </div>
+            <div className="flex flex-row justify-center items-center">
+              <p className="flex font-josefin p-5 relative top-2 ">
+                Ya tienes una cuenta?
+                <span
+                  className="relative left-2 text-[#05607C] cursor-pointer"
+                  onClick={() => navigator("/login")}
+                >
+                  Iniciar Sesion
+                </span>
+              </p>
+            </div>
           </div>
         )}
-        
       </Formik>
-      
     </div>
   );
 };

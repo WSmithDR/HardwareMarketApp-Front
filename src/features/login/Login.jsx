@@ -44,7 +44,7 @@ export const Login = () => {
             {({ errors, touched }) => (
               <Form className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around">
                 <Field
-                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] min-[1440px]:w-[400px] w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F]  outline-none  "
+                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] shadow-lg min-[1440px]:w-[400px] w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F]  outline-none  "
                   placeholder="Telefono/Nombre de usuario/Correo"
                   name="email"
                 ></Field>
@@ -52,46 +52,45 @@ export const Login = () => {
                   <p className="text-[red]">{errors.email}</p>
                 ) : null}
                 <Field
-                  className="max-[425px]:w-[100%]  min-[768px]:w-[70%]  w-[50%] min-[1440px]:w-[400px]  h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none "
+                  className="max-[425px]:w-[100%]  min-[768px]:w-[70%] shadow-lg w-[50%] min-[1440px]:w-[400px]  h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none "
                   placeholder="Contraseña"
                   name="password"
                   type={view ? "password" : "text"}
-                >
-                </Field>
+                ></Field>
 
                 <div>
-                    {view ? (
-                      <img
-                        src="./public/images/closedEye.png"
-                        alt="eyes"
-                        onClick={handleView}
-                        className="flex w-[20px] h-auto right-9 relative cursor-pointer"
-                      />
-                    ) : (
-                      <img
-                        src="
+                  {view ? (
+                    <img
+                      src="./public/images/closedEye.png"
+                      alt="eyes"
+                      onClick={handleView}
+                      className="flex w-[20px] h-auto right-9 relative cursor-pointer"
+                    />
+                  ) : (
+                    <img
+                      src="
                       ./public/images/openEye.png"
-                        alt="pass"
-                        onClick={handleView}
-                        className="flex w-[20px] h-auto right-9 relative cursor-pointer"
-                      />
-                    )}
-                    {view ? (
-                      <p className="flex relative bottom-5 font-josefin">
-                        Mostrar Contraseña
-                      </p>
-                    ) : (
-                      <p className="flex relative bottom-5 font-josefin">
-                        Ocultar Contraseña
-                      </p>
-                    )}
-                  </div>
+                      alt="pass"
+                      onClick={handleView}
+                      className="flex w-[20px] h-auto right-9 relative cursor-pointer"
+                    />
+                  )}
+                  {view ? (
+                    <p className="flex relative bottom-5 font-josefin">
+                      Mostrar Contraseña
+                    </p>
+                  ) : (
+                    <p className="flex relative bottom-5 font-josefin">
+                      Ocultar Contraseña
+                    </p>
+                  )}
+                </div>
 
                 {errors.password && touched.password ? (
                   <p className="text-[red]">{errors.password}</p>
                 ) : null}
                 <button
-                  className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px]"
+                  className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px] cursor-pointer"
                   type="submit"
                 >
                   Iniciar Sesion
@@ -115,13 +114,13 @@ export const Login = () => {
         >
           <div className="w-fit h-[50px]  flex justify-between items-center cursor-pointer">
             <img
-              className="w-[48px]"
+              className="w-[38px]"
               src="/public/images/facebook-48.png"
             ></img>
             <p className="text-[#01242F]">Facebook</p>
           </div>
           <div className="w-fit h-[50px]  flex justify-between items-center cursor-pointer">
-            <img className="w-[48px]" src="/public/images/google.png"></img>
+            <img className="w-[38px]" src="/public/images/google.png"></img>
             <p className="text-[#01242F]">Google</p>
           </div>
         </div>
