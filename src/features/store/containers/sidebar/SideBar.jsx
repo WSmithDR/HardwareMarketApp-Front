@@ -1,6 +1,6 @@
 export const SideBar = () => {
   return (
-    <div className="col-[1/4] w-sideBarWidth relative top-[100px]">
+    <div className="col-[1/4]">
       <h3>SideBar</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi minima
