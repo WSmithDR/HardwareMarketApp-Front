@@ -5,6 +5,7 @@ import { Login } from "../features/login/Login";
 import { StoreScreen } from "../features/store/roots/StoreScreen";
 import WelcomePage from "../features/welcomePage/WelcomePage";
 import { About } from "../features/About/About";
+import Contact from "../features/contact/Contact";
 
 const Routes = () => {
   return (
@@ -16,6 +17,7 @@ const Routes = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/store" element={<StoreScreen />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
       </HardWareRoutes>
     </>
   );
