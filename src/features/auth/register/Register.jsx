@@ -3,6 +3,8 @@ import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registerUserFetch } from "./registerUtils";
+import BackTo from "../../../components/backTo/BackTo";
+import Footer from "../../../components/footer/Footer";
 
 export const Register = () => {
   const navigator = useNavigate();
@@ -15,7 +17,8 @@ export const Register = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-colorButtons">
+    <div className=" flex flex-col justify-between items-center  bg-colorButtons  min-h-screen overflow-hidden   font-josefin ">
+      <BackTo/>
       <Formik
         initialValues={{
           first_name: "",
@@ -89,7 +92,7 @@ export const Register = () => {
           isSubmitting,
           /* and other goodies */
         }) => (
-          <div className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[590px]  bg-customColor rounded-[10px]">
+          <div className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[590px]  bg-customColor rounded-[10px] my-[20px]">
             <Form
               onSubmit={handleSubmit}
               className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around"
@@ -231,6 +234,7 @@ export const Register = () => {
           </div>
         )}
       </Formik>
+      <Footer/>
     </div>
   );
 };
