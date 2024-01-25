@@ -17,11 +17,11 @@ export const StoreNavBar = () => {
           <input
             type="text"
             placeholder="Buscar"
-            className="h-10
+            className="h-9
               rounded-l-lg w-96 p-4 font-josefin bg-[#E8E1E1] text-black outline-none"
           />
           <div
-            className="h-10 
+            className="h-9 
               rounded-r-lg w-14 p-2 font-josefin bg-colorStar
               cursor-pointer flex items-center justify-center
               "
@@ -35,6 +35,16 @@ export const StoreNavBar = () => {
         </div>
 
         {/* Enlaces de navegación */}
+        <div>
+          <a
+            href=""
+            className="font-josefin text-[#E8E1E1] font-bold text-lg relative left-11 cursor-pointer 
+            hover:text-gray-400 "
+          >
+            Categorias
+          </a>
+        </div>
+
         <div>
           <a
             href=""
