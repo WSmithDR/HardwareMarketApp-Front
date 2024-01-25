@@ -1,13 +1,13 @@
-import { StoreNavBar } from "../containers/StoreNavBar";
-import { Products } from "../containers/products/Products";
-import { SideBar } from "../containers/sidebar/SideBar";
+import Footer from "../../../components/footer/Footer";
+import { StoreContainer } from "../containers/StoreContainer";
+import { StoreNavBar } from "../containers/navigation/StoreNavBar";
 
 export const StoreScreen = () => {
   return (
-    <div className="">
+    <div className="flex flex-col  font-josefin">
       <StoreNavBar />
-      <SideBar />
-      <Products />
+      <StoreContainer />
+      <Footer />
     </div>
   );
 };

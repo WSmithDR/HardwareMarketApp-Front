@@ -1,4 +1,4 @@
-import { StoreNavBar } from "../store/containers/StoreNavBar";
+import { StoreNavBar } from "../store/containers/navigation/StoreNavBar";
 
 export const Detail = () => {
   return (
