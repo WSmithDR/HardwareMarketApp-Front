@@ -1,9 +1,9 @@
 import Filters from "../filters/Filters";
 
 
-export const SideBar = () => {
+export const SideBar = ({className}) => {
   return (
-    <div className="col-[1/3] grid justify-center">
+    <div className={className}>
       <Filters/>
     </div>
   );

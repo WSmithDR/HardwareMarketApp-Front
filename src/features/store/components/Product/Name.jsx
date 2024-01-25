@@ -2,6 +2,6 @@
 
 export const Name = ({name})=>{
     return(
-        <h className="uppercase truncate text-productName" title={name}>{name}</h> 
+        <h3 className="uppercase text-wrap" title={name}>{name}</h3> 
     )
 }

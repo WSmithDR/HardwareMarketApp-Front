@@ -1,24 +1,28 @@
 import { CartBtn } from "../../components/Product/CartBtn"
 import { Img } from "../../components/Product/Img"
 import { Name } from "../../components/Product/Name"
+import { Offer } from "../../components/Product/Offer"
 import { PrdCondition } from "../../components/Product/PrdCondition"
 import { PrdRating } from "../../components/Product/PrdRating"
 import { Price } from "../../components/Product/Price"
+import { Sold } from "../../components/Product/Sold"
+import { StockLeft } from "../../components/Product/StockLeft"
 
-export const Product = ({img,name,price, condition, rating})=>{
+export const Product = ({img,name,price, condition, score,offer, sold, stock,className})=>{
     return(
-        <div className="col-span-2 mx-8 my-8">
-            <div className="grid grid-cols-4 bg-bgProduct indent-[10px]">
+        <div className={className}>
+            <div className="grid grid-cols-2 bg-bgProduct">
                 <div className="grid col-[1/2]">
                     <Img url={img} alt={name}/>
                 </div>
-                <div className="grid col-[2/4]">
+                <div className="grid col-[2/e] p-[20px]">
                     <Name name={name}/>
+                    <PrdRating score={score}/>
                     <Price price={price}/>
+                    <StockLeft stock={stock}/>
+                    <Offer offer={offer}/>
                     <PrdCondition condition={condition}/>
-                </div>
-                <div className="grid col-[4/f]">
-                    <PrdRating rating={rating}/>
+                    <Sold sold={sold}/>
                     <CartBtn/>
                 </div>
             </div>

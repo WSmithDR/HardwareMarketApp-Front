@@ -19,11 +19,10 @@ export default {
       fontSize:{
         productName: "16px"
       },
-      borderRadius:{
-        std: "10px"
-      }
-      
     },
+    borderRadius:{
+      std: "10px"
+    }
   },
   plugins: [],
 };
