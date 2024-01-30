@@ -24,7 +24,7 @@ export const StartPage = () => {
 
         <div className="flex flex-row justify-between">
           <img
-            src="../../../public/images/igLogo.png"
+            src="./../../../public/images/igLogo.png"
             alt="logoig"
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
           />
