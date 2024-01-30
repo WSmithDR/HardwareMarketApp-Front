@@ -18,7 +18,7 @@ export const Register = () => {
 
   return (
     <div className=" flex flex-col justify-between items-center  bg-colorButtons  min-h-screen overflow-hidden   font-josefin ">
-      <BackTo/>
+      <BackTo />
       <Formik
         initialValues={{
           first_name: "",
@@ -234,7 +234,13 @@ export const Register = () => {
           </div>
         )}
       </Formik>
-      <Footer/>
+      <footer className="bg-colorButtons text-white py-4 w-full">
+        <div className="container mx-auto text-center">
+          <p className="font-josefin">
+            &copy; 2024 Tu Empresa. Todos los derechos reservados.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

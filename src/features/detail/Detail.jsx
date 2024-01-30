@@ -19,10 +19,10 @@ export const Detail = () => {
             Tarjeta de video RX 550, 4 Gb memoria, disipador de calor OC puerto
             HDMI
           </p>
-          <button className="h-10 w-40 absolute left-[620px] top-[400px]  bg-colorButtons text-white font-josefin">
-            Comprar
+          <button className="h-9 w-40 absolute left-[620px] top-[400px]  bg-colorButtons text-white font-josefin">
+            Comprar Ahora
           </button>
-          <button className="h-10 w-40 absolute right-[300px] top-[400px] font-josefin bg-colorButtons text-white">
+          <button className="h-9 w-40 absolute right-[300px] top-[400px] font-josefin bg-colorButtons text-white">
             Negociar
           </button>
         </div>
