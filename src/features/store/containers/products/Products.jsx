@@ -1,9 +1,7 @@
-
 import { examples } from "../../utils/examples"
 import { Product } from "./Product"
 
 export const Products = ({className}) =>{
- 
     return(
         <div className={className}>
             <div className="grid grid-cols-4">
