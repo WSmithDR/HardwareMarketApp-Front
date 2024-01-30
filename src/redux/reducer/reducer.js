@@ -1,4 +1,4 @@
-import productReducer from "./slices/productSlice"
+import productReducer from "../slices/productSlice"
 
 const slices = {
     products: productReducer
