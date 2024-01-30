@@ -1,5 +1,6 @@
 import { Navbar } from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import facebookLogo from "../../../public/images/facebook-48.png"
 
 export const StartPage = () => {
   return (
@@ -32,7 +33,7 @@ export const StartPage = () => {
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
           />
           <img
-            src="./public/images/facebook-48.png"
+            src={facebookLogo}
             alt="facebookLogo"
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
           />
