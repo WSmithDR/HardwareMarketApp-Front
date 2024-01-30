@@ -1,4 +1,5 @@
-import { Navbar } from "../../components/Navbar";
+import Footer from "../../components/footer/Footer";
+import {Navbar}  from "../../components/navbar/Navbar"
 
 export const About = () => {
   return (
@@ -43,11 +44,8 @@ export const About = () => {
         </p>
       </div>
 
-      <footer className="bg-colorButtons text-white py-4 w-full">
-        <div className="container mx-auto text-center">
-            <p className="font-josefin">&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+   
+    <Footer/>
     </div>
   );
 };

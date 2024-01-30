@@ -1,20 +1,22 @@
 import React from 'react'
+import { Navbar } from '../../components/navbar/Navbar';
+import Footer from '../../components/footer/Footer';
 
-import { Navbar } from "../../components/Navbar";
 
 
 
 export const StartPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-customColor">
+    <div className=" h-[100vh] flex flex-col items-center justify-between gap-10  bg-customColor">
       {/* Contenido de tu página */}
       <Navbar />
 
-      <h1 className="text-3xl text-center font-josefin relative bottom-4 ">
+      <div className='h-[400px] flex justify-around flex-col items-center'>
+      <h1 className="text-3xl text-center font-josefin  ">
         Comienza A Comprar <br /> O vender tus <br /> productos
       </h1>
 
-      <div className="p-12 relative bottom-4">
+      <div className="p-12  ">
         <a href="/store">
           <button className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#01242F] duration-300 bg-colorButtons text-white h-9 w-40 font-josefin px-4 py-2 rounded shadow-xl">
             Comenzar
@@ -22,23 +24,25 @@ export const StartPage = () => {
         </a>
       </div>
 
-      <div className="flex flex-row justify-between relative top-10">
+      <div className="flex flex-row justify-between ">
         <img
           src="./public/images/igLogo.png"
           alt="logoig"
-          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 relative bottom-0"
+          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
         />
         <img
           src="./public/images/twitterLogo.png"
           alt="twitterLogo"
-          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 relative bottom-0"
+          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
         />
         <img
           src="./public/images/facebook-48.png"
           alt="facebookLogo"
-          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 relative bottom-0"
+          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
         />
       </div>
+      </div>
+      <Footer/>
     </div>
   );
 };
