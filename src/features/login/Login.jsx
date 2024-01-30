@@ -5,6 +5,10 @@ import { useState } from "react";
 // import Footer from "../../components/footer/Footer";
 import BackTo from "../../components/backTo/BackTo";
 import { Link } from "react-router-dom";
+import logoFb from "../../../public/images/facebook-48.png"
+import logoGoogle from "../../../public/images/google.png"
+import openEye from "../../../public/images/openEye.png"
+import closeEye from "../../../public/images/closedEye.png"
 
 export const Login = () => {
   // const routeLogin = []
@@ -67,15 +71,14 @@ export const Login = () => {
                 <div>
                   {view ? (
                     <img
-                      src="./public/images/closedEye.png"
+                      src={closeEye}
                       alt="eyes"
                       onClick={handleView}
                       className="flex w-[20px] h-auto right-9 relative cursor-pointer"
                     />
                   ) : (
                     <img
-                      src="
-                      ./public/images/openEye.png"
+                      src={openEye}
                       alt="pass"
                       onClick={handleView}
                       className="flex w-[20px] h-auto right-9 relative cursor-pointer"

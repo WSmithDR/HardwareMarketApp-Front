@@ -1,6 +1,8 @@
 import { Navbar } from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-
+import logoIg from "../../../public/images/igLogo.png"
+import logoFb from "../../../public/images/facebook-48.png"
+import logoTw from "../../../public/images/twitterLogo.png"
 
 export const StartPage = () => {
   return (
@@ -23,17 +25,17 @@ export const StartPage = () => {
 
         <div className="flex flex-row justify-between">
           <img
-            src="../../../public/images/igLogo.png"
+            src={logoIg}
             alt="logoig"
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
           />
           <img
-            src="./public/images/twitterLogo.png"
+            src={logoTw}
             alt="twitterLogo"
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
           />
           <img
-            src="../../../public/images/facebook-48.png"
+            src={logoFb}
             alt="facebookLogo"
             className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
           />

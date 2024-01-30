@@ -1,3 +1,6 @@
+import logoSearch from "../../../../../public/images/isearch.png"
+import logoCart from "../../../../../public/images/carFast.png"
+
 export const StoreNavBar = () => {
   return (
     <>
@@ -84,7 +87,7 @@ export const StoreNavBar = () => {
               "
             >
               <img
-                src="./public/images/isearch.png"
+                src={logoSearch}
                 alt="search"
                 className="w-5"
               />
@@ -109,7 +112,7 @@ export const StoreNavBar = () => {
             <a href="#" className="font-josefin text-colorStar -mt-4 ">
               20
               <img
-                src="./public/images/carFast.png"
+                src={logoCart}
                 alt="logo"
                 className="h-7 w-7 -mt-1.5 mr-5"
               />
