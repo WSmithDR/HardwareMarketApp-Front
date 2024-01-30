@@ -1,10 +1,9 @@
-import { useSelector } from "react-redux"
+
 import { examples } from "../../utils/examples"
 import { Product } from "./Product"
 
 export const Products = ({className}) =>{
-    const currentProducts = useSelector(state => state.products)
-    console.log(currentProducts)
+ 
     return(
         <div className={className}>
             <div className="grid grid-cols-4">
