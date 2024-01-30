@@ -128,12 +128,12 @@ export const Login = () => {
           <div className="w-fit h-[50px]  flex justify-between items-center cursor-pointer">
             <img
               className="w-[38px]"
-              src="/public/images/facebook-48.png"
+              src={logoFb}
             ></img>
             <p className="text-[#01242F]">Facebook</p>
           </div>
           <div className="w-fit h-[50px]  flex justify-between items-center cursor-pointer">
-            <img className="w-[38px]" src="/public/images/google.png"></img>
+            <img className="w-[38px]" src={logoGoogle}></img>
             <p className="text-[#01242F]">Google</p>
           </div>
         </div>
