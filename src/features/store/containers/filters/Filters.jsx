@@ -1,18 +1,28 @@
 
+import { useState } from 'react'
 import SwitchButton from '../../components/filter/SwitchButton'
 
 const Filters = () => {
+  const [hiddenFilter , setHiddenFilter] = useState(true)
+  const handleHidden = () => {
+    setHiddenFilter(!hiddenFilter)
+  }
   return (
-  <div className=' w-[300px] h-[500px] flex flex-col items-start  p-10 gap-10'>
+  <div className=' w-[400px] h-[500px] flex flex-col items-start  p-10 gap-10 '>
+  <div className=' max-[425px]:w-[350px] max-[425px]:flex justify-between'>
   <div>
   <h1 className='text-[20px]' >Tarjetas de video</h1>
  <p>10 Resultados</p>
+
+  </div>
+ 
   </div>
  <div className='bg-[#C8C7C7] h-[40px] w-[100%] rounded-[10px] flex items-center p-4 justify-between '>
     <p>Envio Gratis</p>
     <SwitchButton/>
  </div>
- <div className='w-[100%] h-[100px] flex flex-col p-4 bg-[#C8C7C7] rounded-[10px] justify-between '>
+ <p className='text-[blue] cursor-pointer' onClick={() =>  handleHidden()}>filtrar por precio</p>
+ <div className={`w-[100%] h-[100px] flex flex-col p-4 bg-[#C8C7C7] rounded-[10px] justify-between ${hiddenFilter ? "hidden" : "flex"}`}>
   <p>Filtrado de precios</p>
   <div className=' h-[40px] flex justify-between' >
 

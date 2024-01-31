@@ -6,7 +6,7 @@ import logoTw from "../../../public/images/twitterLogo.png"
 
 export const StartPage = () => {
   return (
-    <div className=" h-[100vh] flex flex-col items-center bg-customColor">
+    <div className=" h-[100vh] flex flex-col  justify-between  items-center bg-customColor">
       {/* Contenido de la página */}
       <Navbar />
 
