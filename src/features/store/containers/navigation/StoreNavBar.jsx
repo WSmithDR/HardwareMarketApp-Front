@@ -22,7 +22,7 @@ export const StoreNavBar = () => {
             d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
           ></path>
         </svg>
-        <p className="font-josefin text-center px-3 text-white px-2 py-3 text-xl">
+        <p className="font-josefin text-center  text-white px-2 py-3 text-xl">
           Hardware Market
         </p>
       </header>
@@ -121,7 +121,7 @@ export const StoreNavBar = () => {
         </div>
 
         {/* Navegacion Mobile (menu desplegable)*/}
-        <div className="bg-colorStar p-4 mt-1 shadow space-y-1 pb-24 pt-2 rounded-b-xl sm:hidden">
+        <div className="bg-colorStar p-4 mt-1 shadow space-y-1 pb-24 pt-2 rounded-b-xl sm:hidden hidden">
           <a
             href="#"
             className="flex items-center text-black font-josefin  

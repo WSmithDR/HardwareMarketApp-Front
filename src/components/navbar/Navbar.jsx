@@ -25,7 +25,7 @@ export const Navbar = () => {
           </a>
           <a
             href="/login"
-            className="text-black font-josefin hover:bg-colorButtons hover:text-white transition-colors p-1 rounded"
+            className="text-black font-josefin hover:bg-colorButtons hover:text-white transition-colors p-1 rounded "
           >
             Iniciar Sesión
           </a>

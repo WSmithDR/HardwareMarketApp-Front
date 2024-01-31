@@ -78,7 +78,6 @@ export const Register = () => {
         onSubmit={async (values, { setSubmitting }) => {
           const fetching = await registerUserFetch(values);
           setMsg(fetching.data.message);
-
           setTimeout(() => {
             setSubmitting(false);
           }, 400);
