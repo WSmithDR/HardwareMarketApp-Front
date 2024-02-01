@@ -3,10 +3,12 @@ import Footer from "../../components/footer/Footer";
 import logoIg from "../../../public/images/igLogo.png";
 import logoFb from "../../../public/images/facebook-48.png";
 import logoTw from "../../../public/images/twitterx.png";
+import { useNavigate } from "react-router-dom";
 
 export const StartPage = () => {
+  const navigate  = useNavigate()
   return (
-    <div className="flex   items-center justify-center flex-col space-y-32 ">
+    <div className="flex  min-h-screen items-center justify-between flex-col space-y-32 ">
       <Navbar />
 
       <div className="flex flex-col justify-center items-center h-auto w-auto space-y-10">
@@ -17,9 +19,10 @@ export const StartPage = () => {
 
         <div className="p-5">
           <button
-            className="bg-colorButtons font-josefin h-[35px] w-[150px] 
+            className="bg-colorButtons font-josefin h-[36px] w-[150px] 
                   pb-2  text-white rounded-[8px] cursor-pointer
-                  pt-1 md:w-[150px]"
+                  pt-1 md:w-[150px] flex items-center justify-center"
+                  onClick={() => navigate("/store")}
           >
             Comenzar
           </button>
