@@ -2,35 +2,24 @@
 
 export const Navbar = () => {
   return (
-    <nav className=" w-[100vw]  flex my-[23px] ">
-      <div className=" container mx-auto flex justify-center items-center ">
-        <div className="space-x-6">
-          <a
-            href="/startPage"
-            className="text-black font-josefin hover:bg-colorButtons hover:text-white transition-colors p-1 rounded"
-          >
-            Inicio
-          </a>
-          <a
-            href="/about"
-            className="text-black font-josefin hover:bg-colorButtons hover:text-white transition-colors p-1 rounded"
-          >
-            Sobre Nosotros
-          </a>
-          <a
-            href="/contact"
-            className="text-black font-josefin hover:bg-colorButtons hover:text-white transition-colors p-1 rounded"
-          >
-            Contacto
-          </a>
-          <a
-            href="/login"
-            className="text-black font-josefin hover:bg-colorButtons hover:text-white transition-colors p-1 rounded "
-          >
-            Iniciar Sesión
-          </a>
-        </div>
+    <nav
+      className="flex w-auto
+       md:pr-10 justify-center bg-colorButtons items-center h-16 
+      p-4 space-x-5 mt-4 font-josefin md:space-x-10 rounded-std text-white"
+    >
+      <div className="hover:text-colorStar transition-colors hover:text-[110%]">
+        <a href="/startPage">Inicio</a>
       </div>
+      <div className="hover:text-colorStar transition-colors hover:text-[110%]">
+        <a href="/about">Acerca de</a>
+      </div>
+      <div className="hover:text-colorStar transition-colors hover:text-[110%]">
+        <a href="/contact">Contacto</a>
+      </div>
+      <div className="hover:text-colorStar transition-colors hover:text-[110%]">
+        <a href="/login">Iniciar sesion</a>
+      </div>
+      {/* <div className="w-[40%] h-0 border border-[#000000]"></div> */}
     </nav>
   );
 };

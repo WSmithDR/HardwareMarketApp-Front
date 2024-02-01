@@ -1,46 +1,58 @@
 import { Navbar } from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import logoIg from "../../../public/images/igLogo.png"
-import logoFb from "../../../public/images/facebook-48.png"
-import logoTw from "../../../public/images/twitterLogo.png"
+import logoIg from "../../../public/images/igLogo.png";
+import logoFb from "../../../public/images/facebook-48.png";
+import logoTw from "../../../public/images/twitterLogo.png";
 
 export const StartPage = () => {
   return (
-    <div className=" h-[100vh] flex flex-col  justify-between  items-center bg-customColor">
-      {/* Contenido de la página */}
+    <div className="flex  justify-between  items-center justify-center flex-col space-y-40 ">
       <Navbar />
 
-      <div className="h-[500px] flex flex-col items-center py-24">
-        <h1 className="text-3xl text-center font-josefin  ">
-          Comienza A Comprar <br /> O vender tus <br /> productos
-        </h1>
+      <div className="flex flex-col justify-center items-center h-auto w-auto space-y-10">
+        <p className="text-[30px] font-josefin text-center">
+          Comienza A Comprar <br /> O Vender Tus <br />
+          Productos
+        </p>
 
-        <div className="py-16 ">
-          <a href="/store">
-            <button className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-[#01242F] duration-300 bg-colorButtons text-white h-9 w-40 font-josefin px-4 py-2 rounded shadow-xl">
-              Comenzar
-            </button>
-          </a>
+        <div className="p-5">
+          <button
+            className="bg-colorButtons font-josefin h-[35px] w-[150px] 
+                  pb-2  text-white rounded-[8px] cursor-pointer
+                  pt-1 md:w-[150px]"
+          >
+            Comenzar
+          </button>
         </div>
 
-        <div className="flex flex-row justify-between">
-          <img
-            src={logoIg}
-            alt="logoig"
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
-          />
-          <img
-            src={logoTw}
-            alt="twitterLogo"
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
-          />
-          <img
-            src={logoFb}
-            alt="facebookLogo"
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-customColor p-5 cursor-pointer w-20 h-22 "
-          />
+        <div
+          className="flex flex-row items-center justify-center w-72 h-36 
+        space-x-20 p-2"
+        >
+          <div>
+            <img
+              src="./public/images/facebook-48.png"
+              alt="facebook.png"
+              className="cursor-pointer"
+            />
+          </div>
+          <div>
+            <img
+              src="./public/images/igLogo.png"
+              alt="facebook.png"
+              className="cursor-pointer"
+            />
+          </div>
+          <div>
+            <img
+              src="./public/images/twitterx.png"
+              alt="facebook.png"
+              className="cursor-pointer"
+            />
+          </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
