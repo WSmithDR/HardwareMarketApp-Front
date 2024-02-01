@@ -5,6 +5,9 @@ import { useState } from "react";
 import { registerUserFetch } from "./registerUtils";
 import BackTo from "../../../components/backTo/BackTo";
 
+import openEye from "../../../../public/images/openEye.png";
+import closeEye from "../../../../public/images/closedEye.png";
+
 // import BackTo from "../../../components/backTo/BackTo";
 // import Footer from "../../../components/footer/Footer";
 
@@ -176,14 +179,14 @@ export const Register = () => {
                 <div className="flex items-center justify-center space-x-3 mb-2">
                   {view ? (
                     <img
-                      src="./public/images/closedEye.png"
+                      src={closeEye}
                       alt="eyes"
                       onClick={handleView}
                       className="flex w-[20px] h-auto cursor-pointer"
                     />
                   ) : (
                     <img
-                      src="./public/images/openEye.png"
+                      src={openEye}
                       alt="pass"
                       onClick={handleView}
                       className="flex w-[20px] h-auto cursor-pointer"

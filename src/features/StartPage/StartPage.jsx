@@ -1,12 +1,12 @@
 import { Navbar } from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-// import logoIg from "../../../public/images/igLogo.png";
-// import logoFb from "../../../public/images/facebook-48.png";
-// import logoTw from "../../../public/images/twitterLogo.png";
+import logoIg from "../../../public/images/igLogo.png";
+import logoFb from "../../../public/images/facebook-48.png";
+import logoTw from "../../../public/images/twitterx.png";
 
 export const StartPage = () => {
   return (
-    <div className="flex   items-center justify-center flex-col space-y-40 ">
+    <div className="flex   items-center justify-center flex-col space-y-32 ">
       <Navbar />
 
       <div className="flex flex-col justify-center items-center h-auto w-auto space-y-10">
@@ -30,25 +30,13 @@ export const StartPage = () => {
         space-x-20 p-2"
         >
           <div>
-            <img
-              src="./public/images/facebook-48.png"
-              alt="facebook.png"
-              className="cursor-pointer"
-            />
+            <img src={logoFb} alt="facebook.png" className="cursor-pointer" />
           </div>
           <div>
-            <img
-              src="./public/images/igLogo.png"
-              alt="facebook.png"
-              className="cursor-pointer"
-            />
+            <img src={logoIg} alt="facebook.png" className="cursor-pointer" />
           </div>
           <div>
-            <img
-              src="./public/images/twitterx.png"
-              alt="facebook.png"
-              className="cursor-pointer"
-            />
+            <img src={logoTw} alt="facebook.png" className="cursor-pointer" />
           </div>
         </div>
       </div>
