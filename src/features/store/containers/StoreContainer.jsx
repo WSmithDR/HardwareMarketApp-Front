@@ -8,7 +8,7 @@ import * as productsActions from "../../../redux/productsReducer/productsAction"
 export const StoreContainer = () => {
   const dispatch = useDispatch()
   const products = useSelector(state => state.products.products)
-  useEffect(async() => {
+  useEffect(() => {
 
     const fetchProducts  = async() => {
       const  setProds = await productsFetch()
