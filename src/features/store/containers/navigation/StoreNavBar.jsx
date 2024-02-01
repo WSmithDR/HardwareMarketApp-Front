@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+
 import logoSearch from "../../../../../public/images/isearch.png"
 import logoCart from "../../../../../public/images/carFast.png"
 import { useDispatch, useSelector } from "react-redux";
-import * as userActions from "../../../../redux/userReducer/userActions"
+import * as userActions from "../../../../redux/userReducer/userActions
 export const StoreNavBar = () => {
   const user = useSelector(state => state.user.user)
 
