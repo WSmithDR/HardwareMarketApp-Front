@@ -19,7 +19,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="h-[100vh] flex flex-col items-center justify-between  bg-colorButtons  font-josefin ">
+    <div className="min-h-screen flex flex-col items-center justify-between  bg-colorButtons  font-josefin ">
       <BackTo />
       <div className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[500px]  bg-customColor rounded-[10px] my-[20px]">
         <div className=" justify-center  items-center w-[80%] h-4/6 flex flex-col gap-10  p-2.5">
@@ -52,10 +52,10 @@ export const Login = () => {
             }}
           >
             {({ errors, touched }) => (
-              <Form className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around">
+              <Form className="flex flex-col w-[100%]  h-[100%]  items-center  justify-between">
                 <Field
                   className="text-[17px] shadow-xl font-josefin mb-1 w-[260px] h-[35px]
-                  rounded-std px-4 outline-0 bg-[#C8C7C7] md:w-[350px] md:h-[40px]"
+                  rounded-std px-4 outline-0 bg-[#C8C7C7] md:w-[350px] md:h-[40px] "
                   placeholder="Correo electronico"
                   name="email"
                 ></Field>
