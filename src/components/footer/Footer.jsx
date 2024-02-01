@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className=" h-[80px] w-[100%]  bg-colorButtons">
+      <footer className=" h-[100px] w-[100%]  bg-colorButtons">
         <div className="flex justify-between">
           <div className="w-[50%] h-[100%]  flex flex-col justify-between text-[white] items-center">
             <p className="cursor-pointer hover:text-[#05607C]">Contacto</p>
