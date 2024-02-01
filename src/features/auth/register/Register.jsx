@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registerUserFetch } from "./registerUtils";
 import BackTo from "../../../components/backTo/BackTo";
+
 // import BackTo from "../../../components/backTo/BackTo";
 // import Footer from "../../../components/footer/Footer";
 
@@ -175,14 +176,14 @@ export const Register = () => {
                 <div className="flex items-center justify-center space-x-3 mb-2">
                   {view ? (
                     <img
-                      src={closeEye}
+                      src="./public/images/closedEye.png"
                       alt="eyes"
                       onClick={handleView}
                       className="flex w-[20px] h-auto cursor-pointer"
                     />
                   ) : (
                     <img
-                      src={openEye}
+                      src="./public/images/openEye.png"
                       alt="pass"
                       onClick={handleView}
                       className="flex w-[20px] h-auto cursor-pointer"

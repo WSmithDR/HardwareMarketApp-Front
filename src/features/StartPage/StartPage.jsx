@@ -1,12 +1,12 @@
 import { Navbar } from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import logoIg from "../../../public/images/igLogo.png";
-import logoFb from "../../../public/images/facebook-48.png";
-import logoTw from "../../../public/images/twitterLogo.png";
+// import logoIg from "../../../public/images/igLogo.png";
+// import logoFb from "../../../public/images/facebook-48.png";
+// import logoTw from "../../../public/images/twitterLogo.png";
 
 export const StartPage = () => {
   return (
-    <div className="flex  justify-between  items-center justify-center flex-col space-y-40 ">
+    <div className="flex   items-center justify-center flex-col space-y-40 ">
       <Navbar />
 
       <div className="flex flex-col justify-center items-center h-auto w-auto space-y-10">
