@@ -4,22 +4,26 @@ import { Formik, Form, Field } from "formik";
 import { useState } from "react";
 // import Footer from "../../components/footer/Footer";
 import BackTo from "../../components/backTo/BackTo";
-import { Link } from "react-router-dom";
 import logoFb from "../../../public/images/facebook-48.png";
 import logoGoogle from "../../../public/images/google.png";
 import openEye from "../../../public/images/openEye.png";
 import closeEye from "../../../public/images/closedEye.png";
+import { loginFetch } from "./loginUtils";
+import * as userActions from "../../redux/userReducer/userActions"
+import { useDispatch } from "react-redux";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const [msg , setMsg] = useState("")
   const [view, setView] = useState(true);
+  const dispatch = useDispatch()
 
   const handleView = () => {
     setView(!view);
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between  bg-colorButtons  font-josefin ">
+    <div className="min-h-screen flex flex-col items-center justify-between  bg-colorButtons  font-josefin">
       <BackTo />
       <div className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[500px]  bg-customColor rounded-[10px] my-[20px]">
         <div className=" justify-center  items-center w-[80%] h-4/6 flex flex-col gap-10  p-2.5">
@@ -45,10 +49,20 @@ export const Login = () => {
               }
               return errors;
             }}
-            onSubmit={(values, { setSubmitting }) => {
-              // Aquí iría tu lógica de inicio de sesión
-              console.log("Iniciando sesión...", values);
-              setSubmitting(false);
+            onSubmit={ async values => {
+              const userFetch = await loginFetch(values)
+              if(userFetch.status === "success"){
+                const userLogin = {
+                  cart : userFetch.cart,
+                  user : userFetch.user
+                }
+               
+              dispatch(userActions.userLoginAction(userLogin))
+               navigate("/store")
+              }else{
+                setMsg(userFetch.message)
+              }
+             
             }}
           >
             {({ errors, touched }) => (
@@ -95,32 +109,20 @@ export const Login = () => {
                     </p>
                   )}
                 </div>
-
+                <p className="text-[red]">{msg}</p>
                 {errors.password && touched.password ? (
                   <p className="text-[red]">{errors.password}</p>
                 ) : null}
 
                 {/* Boton */}
-                <Link to="/store">
+                
                   <button
-                    className={`pt-1 h-[30px] w-[150px] bg-bgProduct text-white rounded-std py-2 px-4 focus:bg-colorButtons hover:bg-colorButtons transition-colors ${
-                      (!touched.email ||
-                        !touched.password ||
-                        errors.email ||
-                        errors.password) &&
-                      "opacity-50 cursor-not-allowed"
-                    }`}
+                    className={`pt-1 h-[30px] w-[150px] text-white rounded-std py-2 px-4 bg-colorButtons hover:bg-colorButtons transition-colors `}
                     type="submit"
-                    disabled={
-                      !touched.email ||
-                      !touched.password ||
-                      errors.email ||
-                      errors.password
-                    }
                   >
                     Iniciar Sesión
                   </button>
-                </Link>
+               
               </Form>
             )}
           </Formik>
