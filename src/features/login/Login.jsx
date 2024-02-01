@@ -7,8 +7,6 @@ import BackTo from "../../components/backTo/BackTo";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
-  // const routeLogin = []
-
   const navigate = useNavigate();
   const [view, setView] = useState(true);
 
@@ -43,22 +41,25 @@ export const Login = () => {
               }
               return errors;
             }}
-            onSubmit={(values) => {
-              console.log(values);
+            onSubmit={(values, { setSubmitting }) => {
+              // Aquí iría tu lógica de inicio de sesión
+              console.log("Iniciando sesión...", values);
+              setSubmitting(false);
             }}
           >
             {({ errors, touched }) => (
               <Form className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around">
                 <Field
-                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] shadow-lg min-[1440px]:w-[400px] w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F]  outline-none  "
-                  placeholder="Telefono/Nombre de usuario/Correo"
+                  className="text-[17px] shadow-xl font-josefin mb-1 w-[260px] h-[35px]
+                  rounded-std px-4 outline-0 bg-[#C8C7C7] md:w-[350px] md:h-[40px]"
+                  placeholder="Correo electronico"
                   name="email"
                 ></Field>
                 {errors.email && touched.email ? (
                   <p className="text-[red]">{errors.email}</p>
                 ) : null}
                 <Field
-                  className="max-[425px]:w-[100%]  min-[768px]:w-[70%] shadow-lg w-[50%] min-[1440px]:w-[400px]  h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none "
+                  className="text-[17px] shadow-xl font-josefin mb-1 w-[260px] h-[35px] rounded-std px-4 outline-0 bg-[#C8C7C7] md:w-[350px] md:h-[40px]"
                   placeholder="Contraseña"
                   name="password"
                   type={view ? "password" : "text"}
@@ -99,10 +100,22 @@ export const Login = () => {
                 {/* Boton */}
                 <Link to="/store">
                   <button
-                    className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px] cursor-pointer"
+                    className={`pt-1 h-[30px] w-[150px] bg-bgProduct text-white rounded-std py-2 px-4 focus:bg-colorButtons hover:bg-colorButtons transition-colors ${
+                      (!touched.email ||
+                        !touched.password ||
+                        errors.email ||
+                        errors.password) &&
+                      "opacity-50 cursor-not-allowed"
+                    }`}
                     type="submit"
+                    disabled={
+                      !touched.email ||
+                      !touched.password ||
+                      errors.email ||
+                      errors.password
+                    }
                   >
-                    Iniciar Sesion
+                    Iniciar Sesión
                   </button>
                 </Link>
               </Form>
@@ -122,16 +135,18 @@ export const Login = () => {
           className="mb-8 max-[425px]:w-[100%] min-[768px]:w-[80%]  w-[50%] h-[50px] flex justify-around"
           id="logos-container"
         >
-          <div className="w-fit h-[50px]  flex justify-between items-center cursor-pointer">
-            <img
-              className="w-[38px]"
-              src="/public/images/facebook-48.png"
-            ></img>
-            <p className="text-[#01242F]">Facebook</p>
-          </div>
-          <div className="w-fit h-[50px]  flex justify-between items-center cursor-pointer">
-            <img className="w-[38px]" src="/public/images/google.png"></img>
-            <p className="text-[#01242F]">Google</p>
+          <div className="w-fit h-[50px] flex space-x-10 md:space-x-40 items-center">
+            <div className="flex items-center justify-center w-[120px] h-16 shadow cursor-pointer">
+              <img
+                className="w-[38px]"
+                src="/public/images/facebook-48.png"
+              ></img>
+              <p className="text-[#01242F]">Facebook</p>
+            </div>
+            <div className="flex items-center justify-center w-[120px] h-16 shadow cursor-pointer">
+              <img className="w-[38px]" src="/public/images/google.png"></img>
+              <p className="text-[#01242F]">Google</p>
+            </div>
           </div>
         </div>
         <p className="text-[#01242F8F]">
@@ -145,7 +160,7 @@ export const Login = () => {
           </span>{" "}
         </p>
       </div>
-
+      {/* Footer */}
       <footer className="bg-colorButtons text-white py-4 w-full">
         <div className="container mx-auto text-center">
           <p className="font-josefin">
