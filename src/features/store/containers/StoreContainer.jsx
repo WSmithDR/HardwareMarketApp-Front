@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import {Filters} from "./filters/Filters";
+import { Filters } from "./filters/Filters";
 import { Products } from "./products/Products";
 import { productsFetch } from "../../../data";
 import { useDispatch, useSelector } from "react-redux";
