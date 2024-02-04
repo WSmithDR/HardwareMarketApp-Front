@@ -7,14 +7,14 @@ import { Cart } from '../components/Cart/Cart'
 
 export const StoreScreen = () => {
 
-  const [cartOpen, setCartOpen] = useState(false)
+  const [cartOpen, setCartOpen] = useState(true)
 
   const handleCart = () => {
     setCartOpen(!cartOpen);
   }
 
   return (
-    <div className="flex flex-col  font-josefin">
+    <div className="flex flex-col  font-josefin overflow-hidden">
       <StoreNavBar handleCart={handleCart} cartOpen={cartOpen}/>
 
 
