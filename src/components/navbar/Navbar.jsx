@@ -1,17 +1,25 @@
 // import { useNavigate } from 'react-router-dom'
 
 export const Navbar = () => {
-  
   return (
-    <nav className=" w-[100vw]  flex my-[20px] ">
-        <div className=" container mx-auto flex justify-center items-center ">
-        <div className="space-x-6">
-          <a href="/startPage" className="text-black font-josefin">Inicio</a>
-          <a href="/about" className="text-black font-josefin  ">Sobre Nosotros</a>
-          <a href="/contact" className="text-black font-josefin ">Contacto</a>
-          <a href='/login' className="text-black font-josefin" >Iniciar Sesión</a>
-        </div>
+    <nav
+      className="flex w-auto font-bold
+      justify-center items-center h-16 
+      p-4 space-x-4 mt-4 font-josefin md:space-x-10 text-black"
+    >
+      <div className="hover:text-colorStar transition-colors hover:text-[110%]">
+        <a href="/startPage">Inicio</a>
       </div>
+      <div className="hover:text-colorStar transition-colors hover:text-[110%]">
+        <a href="/about">Acerca de</a>
+      </div>
+      <div className="hover:text-colorStar transition-colors hover:text-[110%]">
+        <a href="/contact">Contacto</a>
+      </div>
+      <div className="hover:text-colorStar transition-colors hover:text-[110%]">
+        <a href="/login">Iniciar sesion</a>
+      </div>
+      {/* <div className="w-[40%] h-0 border border-[#000000]"></div> */}
     </nav>
-  )
-}
+  );
+};

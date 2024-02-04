@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const WelcomePage = () => {
 
-  
+
   const navigate = useNavigate()
   useEffect(() => {
     setTimeout(() => {
@@ -22,9 +22,21 @@ const WelcomePage = () => {
         </h1>
         <p className=''>BUEN ESTADO BUENOS PRODUCTOS</p>
       </div>
-      <img className='w-10' src='/public/images/giftLoad.gif'></img>
+      <svg
+        className="animate-spin h-12 w-12"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M18.364 5.636 16.95 7.05A7 7 0 1 0 19 12h2a9 9 0 1 1-2.636-6.364z"
+          fill="#ffffff"
+          className="fill-000000"
+        ></path>
+      </svg>
     </div>
+
   )
 }
 
-export default WelcomePage
+export default WelcomePage;

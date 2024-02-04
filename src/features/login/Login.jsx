@@ -2,12 +2,21 @@
 import { useNavigate } from "react-router";
 import { Formik, Form, Field } from "formik";
 import { useState } from "react";
-/*import Footer from "../../components/footer/Footer"; No se está utilizando este componente */
+// import Footer from "../../components/footer/Footer";
 import BackTo from "../../components/backTo/BackTo";
+import logoFb from "../../../public/images/facebook-48.png";
+import logoGoogle from "../../../public/images/google.png";
+import openEye from "../../../public/images/openEye.png";
+import closeEye from "../../../public/images/closedEye.png";
+import { loginFetch } from "./loginUtils";
+import * as userActions from "../../redux/userReducer/userActions"
+import { useDispatch } from "react-redux";
 
 export const Login = () => {
   const navigate = useNavigate();
+  const [msg, setMsg] = useState("")
   const [view, setView] = useState(true);
+  const dispatch = useDispatch()
 
   const handleView = () => {
     setView(!view);
@@ -40,22 +49,35 @@ export const Login = () => {
               }
               return errors;
             }}
-            onSubmit={(values) => {
-              console.log(values);
+            onSubmit={async values => {
+              const userFetch = await loginFetch(values)
+              if (userFetch.status === "success") {
+                const userLogin = {
+                  cart: userFetch.cart,
+                  user: userFetch.user
+                }
+
+                dispatch(userActions.userLoginAction(userLogin))
+                navigate("/store")
+              } else {
+                setMsg(userFetch.message)
+              }
+
             }}
           >
             {({ errors, touched }) => (
-              <Form className="flex flex-col w-[100%]  h-[100%]  items-center  justify-around">
+              <Form className="flex flex-col w-[100%]  h-[100%]  items-center  justify-between">
                 <Field
-                  className="max-[425px]:w-[100%] min-[768px]:w-[70%] shadow-lg min-[1440px]:w-[400px] w-[50%] h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F]  outline-none  "
-                  placeholder="Telefono/Nombre de usuario/Correo"
+                  className="text-[17px] shadow-xl font-josefin mb-1 w-[260px] h-[35px]
+                  rounded-std px-4 outline-0 bg-[#C8C7C7] md:w-[350px] md:h-[40px] "
+                  placeholder="Correo electronico"
                   name="email"
                 ></Field>
                 {errors.email && touched.email ? (
                   <p className="text-[red]">{errors.email}</p>
                 ) : null}
                 <Field
-                  className="max-[425px]:w-[100%]  min-[768px]:w-[70%] shadow-lg w-[50%] min-[1440px]:w-[400px]  h-[37px] bg-[#C8C7C7] px-2 text-[16px] rounded-[10px] text-[#01242F] outline-none "
+                  className="text-[17px] shadow-xl font-josefin mb-1 w-[260px] h-[35px] rounded-std px-4 outline-0 bg-[#C8C7C7] md:w-[350px] md:h-[40px]"
                   placeholder="Contraseña"
                   name="password"
                   type={view ? "password" : "text"}
@@ -64,15 +86,14 @@ export const Login = () => {
                 <div>
                   {view ? (
                     <img
-                      src="./public/images/closedEye.png"
+                      src={closeEye}
                       alt="eyes"
                       onClick={handleView}
                       className="flex w-[20px] h-auto right-9 relative cursor-pointer"
                     />
                   ) : (
                     <img
-                      src="
-                      ./public/images/openEye.png"
+                      src={openEye}
                       alt="pass"
                       onClick={handleView}
                       className="flex w-[20px] h-auto right-9 relative cursor-pointer"
@@ -88,16 +109,20 @@ export const Login = () => {
                     </p>
                   )}
                 </div>
-
+                <p className="text-[red]">{msg}</p>
                 {errors.password && touched.password ? (
                   <p className="text-[red]">{errors.password}</p>
                 ) : null}
+
+                {/* Boton */}
+
                 <button
-                  className="bg-colorButtons h-[30px] w-32 text-stone-100 text-[17px] cursor-pointer"
+                  className={`pt-1 h-[30px] w-[150px] text-white rounded-std py-2 px-4 bg-colorButtons hover:bg-colorButtons transition-colors `}
                   type="submit"
                 >
-                  Iniciar Sesion
+                  Iniciar Sesión
                 </button>
+
               </Form>
             )}
           </Formik>
@@ -115,16 +140,15 @@ export const Login = () => {
           className="mb-8 max-[425px]:w-[100%] min-[768px]:w-[80%]  w-[50%] h-[50px] flex justify-around"
           id="logos-container"
         >
-          <div className="w-fit h-[50px]  flex justify-between items-center cursor-pointer">
-            <img
-              className="w-[38px]"
-              src="/public/images/facebook-48.png"
-            ></img>
-            <p className="text-[#01242F]">Facebook</p>
-          </div>
-          <div className="w-fit h-[50px]  flex justify-between items-center cursor-pointer">
-            <img className="w-[38px]" src="/public/images/google.png"></img>
-            <p className="text-[#01242F]">Google</p>
+          <div className="w-fit h-[50px] flex space-x-10 md:space-x-40 items-center">
+            <div className="flex items-center justify-center w-[120px] h-16 shadow cursor-pointer">
+              <img className="w-[38px]" src={logoFb}></img>
+              <p className="text-[#01242F]">Facebook</p>
+            </div>
+            <div className="flex items-center justify-center w-[120px] h-16 shadow cursor-pointer">
+              <img className="w-[38px]" src={logoGoogle}></img>
+              <p className="text-[#01242F]">Google</p>
+            </div>
           </div>
         </div>
         <p className="text-[#01242F8F]">
