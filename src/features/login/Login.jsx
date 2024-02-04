@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router";
 import { Formik, Form, Field } from "formik";
 import { useState } from "react";
-import Footer from "../../components/footer/Footer";
+/*import Footer from "../../components/footer/Footer"; No se está utilizando este componente */
 import BackTo from "../../components/backTo/BackTo";
 
 export const Login = () => {
@@ -15,7 +15,7 @@ export const Login = () => {
 
   return (
     <div className="h-[100vh] flex flex-col items-center justify-between  bg-colorButtons  font-josefin ">
-     <BackTo  />
+      <BackTo />
       <div className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[500px]  bg-customColor rounded-[10px] my-[20px]">
         <div className=" justify-center  items-center w-[80%] h-4/6 flex flex-col gap-10  p-2.5">
           <h1 className="text-[36px] text-center font-josefin">
@@ -138,12 +138,12 @@ export const Login = () => {
           </span>{" "}
         </p>
       </div>
-    
+
       <footer className="bg-colorButtons text-white py-4 w-full">
         <div className="container mx-auto text-center">
-            <p className="font-josefin">&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+          <p className="font-josefin">&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
         </div>
-    </footer>
+      </footer>
     </div>
   );
 };

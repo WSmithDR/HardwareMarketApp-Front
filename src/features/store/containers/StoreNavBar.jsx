@@ -1,4 +1,6 @@
-export const StoreNavBar = () => {
+import { PropTypes } from 'prop-types';
+
+export const StoreNavBar = ({handleCart}) => {
   return (
     <nav className="bg-colorButtons p-3 m-2 rounded-[10px]">
       <div className="container mx-auto flex items-center justify-between">
@@ -46,9 +48,10 @@ export const StoreNavBar = () => {
         </div>
 
         <div className="flex space-x-7">
-          <a
+          <button
             href=""
             className="font-josefin text-colorStar flex flex-col-reverse relative right-1 text-mx"
+            onClick={()=> handleCart()}
           >
             <img
               src="./public/images/carFast.png"
@@ -56,9 +59,13 @@ export const StoreNavBar = () => {
               className="h-7 w-7 p-0 relative right-2 bottom-2"
             />
             20
-          </a>
+          </button>
         </div>
       </div>
     </nav>
   );
 };
+
+StoreNavBar.propTypes = {
+  handleCart: PropTypes.func.isRequired
+}
