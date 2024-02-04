@@ -4,8 +4,8 @@ import { PropTypes } from 'prop-types'
 
 export const Cart = ({cartOpen, handleCart}) => {
 
-    const closedStyle = "w-[300px] h-[600px] p-8 ml-2 mr-4 mt-[-10px] shadow-[0_3px_2px_0_rgba(0,0,0,0.3)] rounded-bl-lg rounded-br-lg ease-in duration-200 translate-x-[170rem]"
-    const openStyle = "w-[300px] h-[600px] p-8 ml-2 mr-4 mt-[-10px] shadow-[0_3px_2px_0_rgba(0,0,0,0.3)] rounded-bl-lg rounded-br-lg ease-out duration-200 translate-x-[0rem]"
+    const closedStyle = "fixed top-[115px] right-0 bg-white w-[300px] h-[600px] p-8 ml-2 mr-4 mt-[-10px] shadow-[0_3px_2px_0_rgba(0,0,0,0.3)] rounded-bl-lg rounded-br-lg ease-in duration-200 translate-x-[170rem]"
+    const openStyle = "fixed top-[115px] right-0 bg-white w-[300px] h-[600px] p-8 ml-2 mr-4 mt-[-10px] shadow-[0_3px_2px_0_rgba(0,0,0,0.3)] rounded-bl-lg rounded-br-lg ease-out duration-200 translate-x-[0rem]"
 
     
     //Lo hice de esta forma para ver como manejar la suma de los precio
