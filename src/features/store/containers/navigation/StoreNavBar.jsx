@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import * as userActions from "../../../../redux/userReducer/userActions"
 export const StoreNavBar = () => {
   const user = useSelector(state => state.user.user)
-
   const dispatch = useDispatch()
   return (
     <>
@@ -105,7 +104,7 @@ export const StoreNavBar = () => {
               Favoritos
             </a>
             <a href="#" className="font-josefin text-white px-2 py-3">
-              {user.user ? (user.user.first_name) : (<p>mi cuenta</p>)}
+              {user?.user ? (user.user.first_name) : (<p>mi cuenta</p>)}
             </a>
           </div>
 
@@ -117,7 +116,7 @@ export const StoreNavBar = () => {
             </a>
           </div>
         </div>
-        {user.user?   (<p className="text-white cursor-pointer text-[13px]" onClick={() => dispatch(userActions.userLogOutAction())} >Cerrar Sesion</p>) : (null)}
+        {user?.user?   (<p className="text-white cursor-pointer text-[13px]" onClick={() => dispatch(userActions.userLogOutAction())} >Cerrar Sesion</p>) : (null)}
         {/* Navegacion Mobile (menu desplegable)*/}
         <div className="bg-colorStar p-4 mt-1 shadow space-y-1 pb-24 pt-2 rounded-b-xl sm:hidden hidden">
           <a
