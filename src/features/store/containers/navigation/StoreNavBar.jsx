@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
-import logoSearch from "../../../../../public/images/isearch.png"
-import logoCart from "../../../../../public/images/carFast.png"
+import logoSearch from "../../../../../public/images/isearch.png";
+import logoCart from "../../../../../public/images/carFast.png";
 import { useDispatch, useSelector } from "react-redux";
-import * as userActions from "../../../../redux/userReducer/userActions"
-export const StoreNavBar = () => {
-  const user = useSelector(state => state.user.user)
-  const dispatch = useDispatch()
+import * as userActions from "../../../../redux/userReducer/userActions";
+import { PropTypes } from 'prop-types'
+
+
+export const StoreNavBar = ({handleCart}) => {
+  const user = useSelector((state) => state.user.user);
+
+  const dispatch = useDispatch();
   return (
     <>
       {/* Header primario (logo y nombre de la marca) */}
@@ -104,19 +108,19 @@ export const StoreNavBar = () => {
               Favoritos
             </a>
             <a href="#" className="font-josefin text-white px-2 py-3">
-              {user?.user ? (user.user.first_name) : (<p>mi cuenta</p>)}
+              {user.user ? (user.user.first_name) : (<p>mi cuenta</p>)}
             </a>
           </div>
 
           {/* Carrito de compras */}
           <div className="flex items-center flex-col md:px-7">
-            <a href="#" className="font-josefin text-colorStar -mt-4 ">
+            <button onClick={()=> handleCart()} className="font-josefin text-colorStar -mt-4 ">
               20
               <img src={logoCart} alt="logo" className="h-7 w-7 -mt-1.5 mr-5" />
-            </a>
+            </button>
           </div>
         </div>
-        {user?.user?   (<p className="text-white cursor-pointer text-[13px]" onClick={() => dispatch(userActions.userLogOutAction())} >Cerrar Sesion</p>) : (null)}
+        {user.user?   (<p className="text-white cursor-pointer text-[13px]" onClick={() => dispatch(userActions.userLogOutAction())} >Cerrar Sesion</p>) : (null)}
         {/* Navegacion Mobile (menu desplegable)*/}
         <div className="bg-colorStar p-4 mt-1 shadow space-y-1 pb-24 pt-2 rounded-b-xl sm:hidden hidden">
           <a
@@ -193,3 +197,9 @@ export const StoreNavBar = () => {
     </>
   );
 };
+
+
+StoreNavBar.propTypes = {
+  cartOpen: PropTypes.bool.isRequired,
+  handleCart: PropTypes.func.isRequired
+}

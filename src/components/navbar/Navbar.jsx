@@ -5,7 +5,7 @@ export const Navbar = () => {
     <nav
       className="flex w-auto font-bold
       justify-center items-center h-16 
-      p-4 space-x-5 mt-4 font-josefin md:space-x-10 rounded-std text-black"
+      p-4 space-x-4 mt-4 font-josefin md:space-x-10 text-black"
     >
       <div className="hover:text-colorStar transition-colors hover:text-[110%]">
         <a href="/startPage">Inicio</a>
