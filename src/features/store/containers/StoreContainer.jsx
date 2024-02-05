@@ -1,20 +1,10 @@
 
-import Filters from "./filters/Filters";
+import {Filters} from "./filters/Filters";
 import { Products } from "./products/Products";
 import { useDispatch, useSelector } from "react-redux";
 export const StoreContainer = () => {
-  const dispatch = useDispatch()
   const products = useSelector(state => state.products.products)
-  useEffect(() => {
 
-    const fetchProducts  = async() => {
-      const  setProds = await productsFetch()
-      dispatch(productsActions.loadProductsAction(setProds))
-    }
-    
-      fetchProducts()
-  
-  },[])
  
   return (
     <div className=" h-fit   flex flex-col  min-[768px]:flex-row min-[768px]:w-[100vw] " >
