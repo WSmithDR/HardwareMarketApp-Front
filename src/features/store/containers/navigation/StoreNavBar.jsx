@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import logoSearch from "../../../../../public/images/isearch.png";
 import logoCart from "../../../../../public/images/carFast.png";
 import { useDispatch, useSelector } from "react-redux";
 import * as userActions from "../../../../redux/userReducer/userActions";
+
 import { PropTypes } from "prop-types";
 
 export const StoreNavBar = ({ handleCart }) => {
   const user = useSelector((state) => state.user.user);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   return (
@@ -122,29 +125,26 @@ export const StoreNavBar = ({ handleCart }) => {
         </div>
 
         {/* Links Navegacion */}
-        <div className="space-x-8 flex lx:hidden">
-          <a
-            href="/startPage"
-            className="font-josefin text-white px-2 py-3 hidden lg:flex"
-          >
+        <div className="space-x-8 hidden md:flex">
+          <a href="/startPage" className="font-josefin text-white px-2 py-3">
             Inicio
           </a>
-          <a
-            href="#"
-            className="font-josefin text-white px-2 py-3 hidden lg:flex"
-          >
+          <a href="#" className="font-josefin text-white px-2 py-3">
             Favoritos
           </a>
-          <a
-            href="#"
-            className="font-josefin text-white px-2 py-3 hidden lg:flex"
-          >
-            {user.user ? user.user.first_name : <p>mi cuenta</p>}
+          <a href="#" className="font-josefin text-white px-2 py-3">
+            {user?.user ? (
+              <p onClick={() => navigate("/profile-detail")}>
+                {user.user.first_name}
+              </p>
+            ) : (
+              <p onClick={() => navigate("/login")}>Iniciar Sesión</p>
+            )}
           </a>
         </div>
 
         {/* Carrito de compras */}
-        <div className="items-center flex-col md:px-7 hidden xl:flex">
+        <div className="flex items-center flex-col md:px-7">
           <button
             onClick={() => handleCart()}
             className="font-josefin text-colorStar -mt-4 "
@@ -154,14 +154,16 @@ export const StoreNavBar = ({ handleCart }) => {
           </button>
         </div>
         {/* </div> */}
-        {user.user ? (
+
+        {user?.user ? (
           <p
-            className="text-white cursor-pointer text-[13px] hidden"
+            className="text-white cursor-pointer text-[13px]"
             onClick={() => dispatch(userActions.userLogOutAction())}
           >
             Cerrar Sesion
           </p>
         ) : null}
+
         {/* Navegacion Mobile (menu desplegable)*/}
         <div className="bg-colorStar p-4 mt-1 shadow space-y-1 pb-24 pt-2 rounded-b-xl sm:hidden hidden">
           <a

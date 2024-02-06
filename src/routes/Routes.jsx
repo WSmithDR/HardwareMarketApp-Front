@@ -7,6 +7,7 @@ import WelcomePage from "../features/welcomePage/WelcomePage";
 import { About } from "../features/About/About";
 import Contact from "../features/contact/Contact";
 import { Detail } from "../features/detail/Detail";
+import ProfileDetail from "../features/profileDetail/ProfileDetail";
 
 const Routes = () => {
   return (
@@ -20,6 +21,7 @@ const Routes = () => {
         <Route path="/store" element={<StoreScreen />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/detail" element={<Detail />}></Route>
+        <Route path="/profile-detail" element = {<ProfileDetail/>}></Route>
       </HardWareRoutes>
     </>
   );

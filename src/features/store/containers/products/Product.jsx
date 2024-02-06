@@ -13,7 +13,7 @@ export const Product = (prop) => {
   return (
     <div className="flex border-yellow-400 border-[1px] space-x-10">
       <div className="">{/* <img url={img} alt={name} /> */}</div>
-      <div className="">
+      <div className="fle">
         <Name name={title} />
         <PrdRating score={score} />
         <Price price={price} />
