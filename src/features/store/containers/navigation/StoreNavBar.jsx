@@ -34,11 +34,14 @@ export const StoreNavBar = ({ handleCart }) => {
         </p>
       </header> */}
       {/* Header segundario (contenido) */}
-      <header className="flex items-center justify-center bg-colorButtons shadow h-[70px] pt-1 rounded-[10px] md:rounded-b-std ml-3 mr-3 md:rounded-[10px] mt-2 md:h-[95px] w-auto">
+      <header
+        className="flex items-center justify-center space-x-20 bg-colorButtons shadow h-[70px] pt-1 rounded-[10px] md:rounded-b-std 
+      ml-3 mr-3 md:rounded-[10px] mt-2 md:h-[95px] w-auto"
+      >
         {/* Navegacion Desktop */}
         {/* <div className="flex  items-center p-2 w-auto"> */}
         <Link to="/startPage">
-          <div className="flex items-center md:px-5 bg-colorButtons shadow md:h-[40px] md:mt-1 md:mr-2 md:ml-2">
+          <div className="items-center md:px-5 bg-colorButtons shadow md:h-[40px] md:mt-1 md:mr-2  md:ml-2 hidden lg:flex">
             <svg
               className="w-7 h-7 text-colorStar md:w-12 md:h-12 md:pb-2 cursor-pointer hidden md:flex"
               data-slot="icon"
@@ -60,10 +63,46 @@ export const StoreNavBar = ({ handleCart }) => {
             </p>
           </div>
         </Link>
-        <div className="flex space-x-16 items-center justify-center">
-          {/* Menu hamburguesa */}
+        <div className="flex items-center lg:space-x-20 space-x-9 ">
+          {/* Logo */}
           <svg
-            className="text-white px-1 py-1 w-12 h-12 cursor-pointer -ml-2 md:hidden
+            className="w-12 h-12 text-colorStar lg:hidden ml-1"
+            data-slot="icon"
+            fill="none"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
+            ></path>
+          </svg>
+
+          {/* Barra De Busqueda */}
+          <div className="flex md:px-20">
+            <input
+              type="text"
+              placeholder="Buscar"
+              className="h-8 rounded-l-[10px] w-[100px] p-3 
+              font-josefin bg-[#E8E1E1] text-black 
+              outline-none text-[15px] sm:w-[300px]"
+            />
+            <div
+              className="h-8 rounded-r-[10px] w-10 p-2 font-josefin bg-colorStar
+              cursor-pointer flex items-center justify-center
+              "
+            >
+              <img src={logoSearch} alt="search" className="w-5" />
+            </div>
+          </div>
+
+          {/* Menu Hamburguesa */}
+          <svg
+            className="text-white py-1 w-12 h-12 cursor-pointer lg:hidden
             hover:bg-colorStar rounded  transition-colors focus:ring-3 focus:ring-colorStar
             flex justify-end"
             data-slot="icon"
@@ -80,59 +119,32 @@ export const StoreNavBar = ({ handleCart }) => {
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             ></path>
           </svg>
-
-          {/* Barra De Busqueda */}
-          <div className="flex md:px-20">
-            <input
-              type="text"
-              placeholder="Buscar"
-              className="h-8 rounded-l-[10px] w-20 p-4 
-              font-josefin bg-[#E8E1E1] text-black 
-              outline-none text-[15px] md:w-[300px]"
-            />
-            <div
-              className="h-8 rounded-r-[10px] w-10 p-2 font-josefin bg-colorStar
-              cursor-pointer flex items-center justify-center
-              "
-            >
-              <img src={logoSearch} alt="search" className="w-5" />
-            </div>
-          </div>
-
-          {/* Logo */}
-          <svg
-            className="w-7 h-7 text-colorStar md:hidden"
-            data-slot="icon"
-            fill="none"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
-            ></path>
-          </svg>
         </div>
 
         {/* Links Navegacion */}
-        <div className="space-x-8 hidden md:flex">
-          <a href="/startPage" className="font-josefin text-white px-2 py-3">
+        <div className="space-x-8 flex lx:hidden">
+          <a
+            href="/startPage"
+            className="font-josefin text-white px-2 py-3 hidden lg:flex"
+          >
             Inicio
           </a>
-          <a href="#" className="font-josefin text-white px-2 py-3">
+          <a
+            href="#"
+            className="font-josefin text-white px-2 py-3 hidden lg:flex"
+          >
             Favoritos
           </a>
-          <a href="#" className="font-josefin text-white px-2 py-3">
+          <a
+            href="#"
+            className="font-josefin text-white px-2 py-3 hidden lg:flex"
+          >
             {user.user ? user.user.first_name : <p>mi cuenta</p>}
           </a>
         </div>
 
         {/* Carrito de compras */}
-        <div className="flex items-center flex-col md:px-7">
+        <div className="items-center flex-col md:px-7 hidden xl:flex">
           <button
             onClick={() => handleCart()}
             className="font-josefin text-colorStar -mt-4 "
@@ -144,7 +156,7 @@ export const StoreNavBar = ({ handleCart }) => {
         {/* </div> */}
         {user.user ? (
           <p
-            className="text-white cursor-pointer text-[13px]"
+            className="text-white cursor-pointer text-[13px] hidden"
             onClick={() => dispatch(userActions.userLogOutAction())}
           >
             Cerrar Sesion
