@@ -1,14 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
+
 import logoSearch from "../../../../../public/images/isearch.png";
 import logoCart from "../../../../../public/images/carFast.png";
 import { useDispatch, useSelector } from "react-redux";
 import * as userActions from "../../../../redux/userReducer/userActions";
+
 import { PropTypes } from 'prop-types'
 
 
 export const StoreNavBar = ({handleCart}) => {
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate()
+
   const dispatch = useDispatch();
   return (
     <>
@@ -108,7 +111,9 @@ export const StoreNavBar = ({handleCart}) => {
               Favoritos
             </a>
             <a href="#" className="font-josefin text-white px-2 py-3">
+
               {user?.user ? (<p onClick={() => navigate("/profile-detail")} >{user.user.first_name}</p>) : (<p onClick={() => navigate("/login")}>Iniciar Sesión</p>)}
+
             </a>
           </div>
 
@@ -120,7 +125,9 @@ export const StoreNavBar = ({handleCart}) => {
             </button>
           </div>
         </div>
+
         {user?.user?   (<p className="text-white cursor-pointer text-[13px]" onClick={() => dispatch(userActions.userLogOutAction())} >Cerrar Sesion</p>) : (null)}
+
         {/* Navegacion Mobile (menu desplegable)*/}
         <div className="bg-colorStar p-4 mt-1 shadow space-y-1 pb-24 pt-2 rounded-b-xl sm:hidden hidden">
           <a
