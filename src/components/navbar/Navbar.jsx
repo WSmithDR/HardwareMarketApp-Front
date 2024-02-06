@@ -1,6 +1,12 @@
 // import { useNavigate } from 'react-router-dom'
 
+import { useSelector } from "react-redux";
+
+
+
 export const Navbar = () => {
+  const user = useSelector(state => state.user.user)
+
   return (
     <nav
       className="flex w-auto font-bold
@@ -17,7 +23,9 @@ export const Navbar = () => {
         <a href="/contact">Contacto</a>
       </div>
       <div className="hover:text-colorStar transition-colors hover:text-[110%]">
-        <a href="/login">Iniciar sesion</a>
+        {user?.user ? (
+          null
+        ) : ( <a href="/login">Iniciar sesion</a>)}
       </div>
       {/* <div className="w-[40%] h-0 border border-[#000000]"></div> */}
     </nav>

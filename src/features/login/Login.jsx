@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [msg , setMsg] = useState("")
+  const [msg, setMsg] = useState("")
   const [view, setView] = useState(true);
   const dispatch = useDispatch()
 
@@ -23,7 +23,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between  bg-colorButtons  font-josefin">
+    <div className="h-[100vh] flex flex-col items-center justify-between  bg-colorButtons  font-josefin ">
       <BackTo />
       <div className="max-[425px]:w-[90%] min-[768px]:w-[50%] min-[1440px]:w-[40%] flex flex-col items-center justify-center w-4/5 h-[500px]  bg-customColor rounded-[10px] my-[20px]">
         <div className=" justify-center  items-center w-[80%] h-4/6 flex flex-col gap-10  p-2.5">
@@ -49,20 +49,20 @@ export const Login = () => {
               }
               return errors;
             }}
-            onSubmit={ async values => {
+            onSubmit={async values => {
               const userFetch = await loginFetch(values)
-              if(userFetch.status === "success"){
+              if (userFetch.status === "success") {
                 const userLogin = {
-                  cart : userFetch.cart,
-                  user : userFetch.user
+                  cart: userFetch.cart,
+                  user: userFetch.user
                 }
-               
-              dispatch(userActions.userLoginAction(userLogin))
-               navigate("/store")
-              }else{
+
+                dispatch(userActions.userLoginAction(userLogin))
+                navigate("/store")
+              } else {
                 setMsg(userFetch.message)
               }
-             
+
             }}
           >
             {({ errors, touched }) => (
@@ -115,14 +115,14 @@ export const Login = () => {
                 ) : null}
 
                 {/* Boton */}
-                
-                  <button
-                    className={`pt-1 h-[30px] w-[150px] text-white rounded-std py-2 px-4 bg-colorButtons hover:bg-colorButtons transition-colors `}
-                    type="submit"
-                  >
-                    Iniciar Sesión
-                  </button>
-               
+
+                <button
+                  className={`pt-1 h-[30px] w-[150px] text-white rounded-std py-2 px-4 bg-colorButtons hover:bg-colorButtons transition-colors `}
+                  type="submit"
+                >
+                  Iniciar Sesión
+                </button>
+
               </Form>
             )}
           </Formik>
@@ -162,12 +162,10 @@ export const Login = () => {
           </span>{" "}
         </p>
       </div>
-      {/* Footer */}
+
       <footer className="bg-colorButtons text-white py-4 w-full">
         <div className="container mx-auto text-center">
-          <p className="font-josefin">
-            &copy; 2024 Tu Empresa. Todos los derechos reservados.
-          </p>
+          <p className="font-josefin">&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>
