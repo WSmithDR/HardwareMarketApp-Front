@@ -132,7 +132,7 @@ export const StoreNavBar = ({ handleCart }) => {
         </div>
 
         {/* Carrito de compras */}
-        <div className="items-center flex-col md:px-7 hidden md:flex">
+        <div className="flex items-center flex-col md:px-7">
           <button
             onClick={() => handleCart()}
             className="font-josefin text-colorStar -mt-4 "

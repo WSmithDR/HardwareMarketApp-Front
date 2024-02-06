@@ -9,6 +9,7 @@ export const userLoginAction = (user) =>{
 
 export const userLogOutAction = () => {
     return {
-        type : USER_LOGOUT
+        type : USER_LOGOUT ,
+        payload : null
     }
 }

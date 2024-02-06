@@ -4,9 +4,14 @@ import logoIg from "../../../public/images/igLogo.png";
 import logoFb from "../../../public/images/facebook-48.png";
 import logoTw from "../../../public/images/twitterx.png";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { productsFetch } from "../../data";
+import * as productsActions from "../../redux/productsReducer/productsAction"
 
 export const StartPage = () => {
   const navigate  = useNavigate()
+ 
   return (
     <div className="flex  min-h-screen items-center justify-between flex-col space-y-32 ">
       <Navbar />

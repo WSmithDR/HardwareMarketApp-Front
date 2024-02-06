@@ -3,7 +3,7 @@ import { USER_LOGIN, USER_LOGOUT } from "./userActions"
 
 
 const initialState = {
-    user : []
+    user : null
 }
 
 export const userReducer = (state = initialState ,{type , payload}) => {
@@ -17,12 +17,15 @@ export const userReducer = (state = initialState ,{type , payload}) => {
     case USER_LOGOUT :{
         return {
             ...state ,
-            user : []
+            user : payload
         }
     }
-    default :
-    return {
-        ...state
+    default : {
+        return state
     }
-   }
+   
+
+    
+   
+}
 }
