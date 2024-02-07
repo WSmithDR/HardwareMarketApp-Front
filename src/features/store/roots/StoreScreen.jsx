@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Footer from "../../../components/footer/Footer";
+// import Footer from "../../../components/footer/Footer";
 import { StoreContainer } from "../containers/StoreContainer";
 // import { Filters } from "../containers/filters/Filters"
 import { StoreNavBar } from "../containers/navigation/StoreNavBar";
@@ -27,7 +27,7 @@ export const StoreScreen = () => {
         <StoreContainer />
         <Cart handleCart={handleCart} cartOpen={cartOpen} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
