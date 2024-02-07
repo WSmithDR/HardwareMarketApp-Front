@@ -1,22 +1,33 @@
 
 import { useState } from 'react'
 import SwitchButton from '../../components/filter/SwitchButton'
+import { useSelector } from 'react-redux'
+import Categories from '../../components/categories/Categories'
 
 export const Filters = () => {
   const [hiddenFilter, setHiddenFilter] = useState(true)
+  const products  = useSelector(state => state.products.products)
+  const [hiddenCategories , setHiddenCategories] = useState(true)
+  const handleCategories = () => {
+    setHiddenCategories(!hiddenCategories)
+  }
+  
   const handleHidden = () => {
     setHiddenFilter(!hiddenFilter)
   }
   return (
-    <div className=' w-[400px] h-[500px] flex flex-col items-start  p-10 gap-10 '>
+    <div className=' w-[400px] h-fit flex flex-col   p-5 gap-10  '>
       <div className=' max-[425px]:w-[350px] max-[425px]:flex justify-between'>
         <div>
           <h1 className='text-[20px]' >Tarjetas de video</h1>
-          <p>10 Resultados</p>
+          <p>{products.length} Resultados</p>
 
         </div>
 
       </div>
+      <div className='flex items-center   w-[100%]  h-[40px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-2 cursor-pointer'
+      onClick={() => handleCategories()} >Categories</div>
+      <Categories hidden = {hiddenCategories} />
       <div className='bg-[#C8C7C7] h-[40px] w-[100%] rounded-[10px] flex items-center p-4 justify-between '>
         <p>Envio Gratis</p>
         <SwitchButton />

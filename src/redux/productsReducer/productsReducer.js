@@ -1,7 +1,8 @@
-import { LOAD_PRODUCTS } from "./productsAction"
+import { CATEGORY_SELECTED, LOAD_PRODUCTS } from "./productsAction"
 
 const initialState = {
-    products : []
+    products : [] ,
+    categorySelected : null ,
 }
 
 
@@ -13,6 +14,12 @@ export const productsReducer = (state = initialState , {type , payload}) => {
             return {
                 ...state ,
                 products  : payload
+            }
+        }
+        case  CATEGORY_SELECTED : {
+            return {
+                ...state , 
+                categorySelected : payload
             }
         }
         default :
