@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import logoSearch from "../../../../../public/images/isearch.png";
 import logoCart from "../../../../../public/images/carFast.png";
@@ -20,38 +20,40 @@ export const StoreNavBar = ({ handleCart }) => {
       >
         {/* Navegacion Desktop */}
         {/* <div className="flex  items-center p-2 w-auto"> */}
-        <Link to="/startPage">
-          <div
-            className="items-center md:px-5 bg-colorButtons shadow md:h-[40px] md:mt-1 md:mr-2 
-           md:ml-2 hidden lg:flex"
+        <div
+          className="items-center justify-center md:px-5 bg-colorButtons shadow md:h-[40px] md:mt-1 md:mr-2 
+            md:ml-2 hidden lg:flex"
+        >
+          {/* <Link to="/startPage" className="w"> */}
+          <svg
+            className="w-7 h-7 text-colorStar md:w-12 md:h-12 md:pb-2 cursor-pointer
+              hidden md:flex ml-30"
+            data-slot="icon"
+            fill="none"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            onClick={() => navigate("/startPage")}
           >
-            <svg
-              className="w-7 h-7 text-colorStar md:w-12 md:h-12 md:pb-2 cursor-pointer
-              hidden md:flex "
-              data-slot="icon"
-              fill="none"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
-              ></path>
-            </svg>
-            {/* <div className="flex flex-col"> */}
-            <p
-              className="font-josefin text-center px-3 text-white py-3 
-            text-xl hidden md:flex mr-[60px]"
-            >
-              Hardware Market
-            </p>
-            {/* </div> */}
-          </div>
-        </Link>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
+            ></path>
+          </svg>
+          {/* <div className="flex flex-col"> */}
+          <p
+            className="font-josefin text-center px-3 text-white py-3 
+            text-xl hidden md:flex mr-[60px] cursor-pointer"
+            onClick={() => navigate("/startPage")}
+          >
+            Hardware Market
+          </p>
+          {/* </div> */}
+          {/* </Link> */}
+        </div>
         <div className="flex items-center justify-center lg:space-x-20">
           {/* Logo */}
           <svg
