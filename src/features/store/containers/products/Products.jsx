@@ -1,22 +1,27 @@
-import { examples } from "../../utils/examples"
-import { Product } from "./Product"
+// import { examples } from "../../utils/examples"
+import { useSelector } from "react-redux";
+import { Product } from "./Product";
 
-export const Products = (prod) =>{
+export const Products = () => {
+  const products = useSelector((state) => state.products.products);
 
-    const {title , price , score , stock} = prod;
-    
-    return(
-        <div>
-            <div >
-                     <Product
-                    name={title}
-                    price={price} 
-                    score={score}
-                    stock={stock}
-                    className="col-span-2 mx-8 my-8" 
-                    />
-               
-            </div>
-        </div>
-    )
-}
+  // Productos (en general)
+  return (
+    <div className="space-y-10 mt-10">
+      {products.map((product, index) => {
+        return (
+          <div key={index}>
+            <Product
+              thumbnails={product.thumbnails}
+              title={product.title}
+              description={product.description}
+              price={product.price}
+              trademark={product.trademark}
+              stock={product.stock}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+};

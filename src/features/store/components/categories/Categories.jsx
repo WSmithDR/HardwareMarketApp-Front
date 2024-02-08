@@ -1,28 +1,26 @@
-import React, { useState } from "react";
-//se hizo un array de objetos de categorias para que el codigo sea mas limpio 
+import { useState } from "react";
+//se hizo un array de objetos de categorias para que el codigo sea mas limpio
 import { categoriesList } from "./categoriesList";
 import { useDispatch } from "react-redux";
-import * as productsActions from "../../../../redux/productsReducer/productsAction"
+import * as productsActions from "../../../../redux/productsReducer/productsAction";
 //------------------------------------------------//
 const Categories = (prop) => {
-  
-  const [categorySelect, setCategorySelect] = useState(null);
-  const [id , setId] = useState()
+  // const [categorySelect, setCategorySelect] = useState(null);
+  const [id, setId] = useState();
 
-  const dispatch = useDispatch()  
-  
-  //esta funcion se encarga de seleccionar el id de la categoria y ademas tambien setea la categoria seleccionada para filtrar los productos 
+  const dispatch = useDispatch();
+
+  //esta funcion se encarga de seleccionar el id de la categoria y ademas tambien setea la categoria seleccionada para filtrar los productos
   const handleUlAndCategory = (e) => {
-
     let selectedCategory = e.target.innerText;
-    let idSelect = e.target.id
-   
-    setId(idSelect)
-    if(id == idSelect ){
-      setId(null)
-      dispatch(productsActions.categorySelectedAction(null))
-    }else if(id !== idSelect ){
-      dispatch(productsActions.categorySelectedAction(selectedCategory))
+    let idSelect = e.target.id;
+
+    setId(idSelect);
+    if (id == idSelect) {
+      setId(null);
+      dispatch(productsActions.categorySelectedAction(null));
+    } else if (id !== idSelect) {
+      dispatch(productsActions.categorySelectedAction(selectedCategory));
     }
   };
   return (
@@ -48,8 +46,6 @@ const Categories = (prop) => {
         </ul>
       </div>
       ))}
-
-     
     </div>
   );
 };
