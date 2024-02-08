@@ -26,12 +26,12 @@ export const StoreContainer = () => {
           <Products  {...prod} key={index} />
           
         ))}
-        {categorySelected !== null && prodsPorCategory.map((prod , index) => (
+        {/* {categorySelected !== null && prodsPorCategory.map((prod , index) => (
           <Products {... prod}  key = {index} />
-        ))}
-         {shippingIsfree == true && prodsPorCategoryAndShippingFree.map((prod , index) => (
+        ))} */}
+         {/* {shippingIsfree == true && prodsPorCategoryAndShippingFree.map((prod , index) => (
             <Products {...prod } key = {index }/>
-          ))}
+          ))} */}
 
 
       </div>
