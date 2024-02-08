@@ -4,8 +4,8 @@ import { PropTypes } from 'prop-types'
 
 export const Cart = ({cartOpen, handleCart}) => {
 
-    const closedStyle = "fixed top-[115px] right-0 bg-white w-[300px] h-[600px] p-8 ml-2 mr-4 mt-[-10px] shadow-[0_3px_2px_0_rgba(0,0,0,0.3)] rounded-bl-lg rounded-br-lg ease-in duration-200 translate-x-[170rem]"
-    const openStyle = "fixed top-[115px] right-0 bg-white w-[300px] h-[600px] p-8 ml-2 mr-4 mt-[-10px] shadow-[0_3px_2px_0_rgba(0,0,0,0.3)] rounded-bl-lg rounded-br-lg ease-out duration-200 translate-x-[0rem]"
+    const closedStyle = "absolute top-[115px] right-0 bg-white w-[300px] h-[600px] p-8 ml-2 mr-4 mt-[-10px] shadow-[0_3px_2px_0_rgba(0,0,0,0.3)] ease-in duration-200 translate-x-[170rem]"
+    const openStyle = "absolute top-[115px] right-0 bg-white w-[300px] h-[600px] p-8 ml-2 mr-4 mt-[-10px] shadow-[0_3px_2px_0_rgba(0,0,0,0.3)] rounded-b-[20px] ease-out duration-200 translate-x-[0rem] max-[768px]:m-[9px] max-[768px]:translate-x-[-0.2rem]"
 
     
     //Lo hice de esta forma para ver como manejar la suma de los precio
@@ -51,7 +51,7 @@ export const Cart = ({cartOpen, handleCart}) => {
 
 
     return (
-        <div className={cartOpen ? closedStyle : openStyle}>
+        <div className={cartOpen ? closedStyle : openStyle} /*style={{'border-bottom-right-radius':'20px','border-bottom-left-radius':'20px'}}*/>
             <div className="flex justify-between h-[40px] items-center p-[0_0_20px]">
                 <h1 className=" border-b border-b-black w-max h-max font-bold text-[#05607C]">Tu Carrito</h1>
                 <button onClick={() => handleCart()}>
