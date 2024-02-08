@@ -1,8 +1,9 @@
-import { CATEGORY_SELECTED, LOAD_PRODUCTS } from "./productsAction"
+import { CATEGORY_SELECTED, LOAD_PRODUCTS, SHIPPING_COST } from "./productsAction"
 
 const initialState = {
     products : [] ,
     categorySelected : null ,
+    shippingIsFree : false
 }
 
 
@@ -20,6 +21,12 @@ export const productsReducer = (state = initialState , {type , payload}) => {
             return {
                 ...state , 
                 categorySelected : payload
+            }
+        }
+        case SHIPPING_COST : {
+            return {
+                ...state ,
+                shippingIsFree : payload
             }
         }
         default :
