@@ -6,7 +6,7 @@ export const Forms = () => {
       <div className="flex flex-col items-center justify-center lg:w-2/4 w-[770px] h-[660px] rounded-[20px] bg-customColor my-4 lg:my-8">
         <div className="relative button-22">
           <h1 className="font-josefin relative top-[-170px] text-[26px] text-center ">
-            Comemcemos escogiendo tu
+            Comencemos escogiendo tu
             <br /> rol
           </h1>
         </div>
