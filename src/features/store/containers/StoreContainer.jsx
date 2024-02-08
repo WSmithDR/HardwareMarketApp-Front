@@ -12,7 +12,7 @@ export const StoreContainer = () => {
   const prodsPorCategory = products.filter((prod) => prod.category == categorySelected)
 
   const prodsPorCategoryAndShippingFree = prodsPorCategory.filter((prod) =>   shippingIsfree == true   && prod.deliveryMethod[0] == "homePickup")
-  console.log(prodsPorCategoryAndShippingFree)
+  console.log("hola")
   
 
   return (
