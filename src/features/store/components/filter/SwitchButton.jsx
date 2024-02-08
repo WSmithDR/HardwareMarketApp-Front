@@ -1,10 +1,17 @@
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import * as productsActions from "../../../../redux/productsReducer/productsAction"
 const SwitchButton = () => {
+  const dispatch = useDispatch()
     const [switchBall , setSwitchBall] = useState(false)
     const handleBall = () => {
     setSwitchBall(!switchBall)
+   
     }
+
+    useEffect(() => {
+      dispatch(productsActions.shippingCostAction(switchBall))
+    },[switchBall])
  
   return (
     <div className={`w-[60px] h-[25px] border-2 border-gray-500  bg-white rounded-[50px]  flex  items-center `}>
