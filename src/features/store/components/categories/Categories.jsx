@@ -1,28 +1,26 @@
-import React, { useState } from "react";
-//se hizo un array de objetos de categorias para que el codigo sea mas limpio 
+import { useState } from "react";
+//se hizo un array de objetos de categorias para que el codigo sea mas limpio
 import { categoriesList } from "./categoriesList";
 import { useDispatch } from "react-redux";
-import * as productsActions from "../../../../redux/productsReducer/productsAction"
+import * as productsActions from "../../../../redux/productsReducer/productsAction";
 //------------------------------------------------//
 const Categories = (prop) => {
-  
-  const [categorySelect, setCategorySelect] = useState(null);
-  const [id , setId] = useState()
+  // const [categorySelect, setCategorySelect] = useState(null);
+  const [id, setId] = useState();
 
-  const dispatch = useDispatch()  
-  
-  //esta funcion se encarga de seleccionar el id de la categoria y ademas tambien setea la categoria seleccionada para filtrar los productos 
+  const dispatch = useDispatch();
+
+  //esta funcion se encarga de seleccionar el id de la categoria y ademas tambien setea la categoria seleccionada para filtrar los productos
   const handleUlAndCategory = (e) => {
-
     let selectedCategory = e.target.innerText;
-    let idSelect = e.target.id
-   
-    setId(idSelect)
-    if(id == idSelect ){
-      setId(null)
-      dispatch(productsActions.categorySelectedAction(null))
-    }else if(id !== idSelect ){
-      dispatch(productsActions.categorySelectedAction(selectedCategory))
+    let idSelect = e.target.id;
+
+    setId(idSelect);
+    if (id == idSelect) {
+      setId(null);
+      dispatch(productsActions.categorySelectedAction(null));
+    } else if (id !== idSelect) {
+      dispatch(productsActions.categorySelectedAction(selectedCategory));
     }
   };
   return (
@@ -31,25 +29,28 @@ const Categories = (prop) => {
         prop.hidden ? "hidden" : "flex"
       }`}
     >
-      {categoriesList.map((category) => (
-        <div className="p-4">
-        <h2
-          className="text-[16px] cursor-pointer"
-          on  onClick={(e) => handleUlAndCategory(e)}
-          id={category.id}
-        >
-          {category.categoryName}
-        </h2>
-        <ul className={`pl-5  flex-col gap-5 mt-5 ${
-       id == category.id ? "flex" : "hidden"}`}>
-         {category.subCategories.map((subCategory) => (
-           <li className="cursor-pointer">{subCategory}</li>
-         ))}
-        </ul>
-      </div>
+      {categoriesList.map((category, index) => (
+        <div className="p-4" key={index}>
+          <h2
+            className="text-[16px] cursor-pointer"
+            onClick={(e) => handleUlAndCategory(e)}
+            id={category.id}
+          >
+            {category.categoryName}
+          </h2>
+          <ul
+            className={`pl-5  flex-col gap-5 mt-5 ${
+              id == category.id ? "flex" : "hidden"
+            }`}
+          >
+            {category.subCategories.map((subCategory, index) => (
+              <li className="cursor-pointer" key={index}>
+                {subCategory}
+              </li>
+            ))}
+          </ul>
+        </div>
       ))}
-
-     
     </div>
   );
 };

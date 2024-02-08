@@ -26,7 +26,8 @@ export const StoreNavBar = ({ handleCart }) => {
            md:ml-2 hidden lg:flex"
           >
             <svg
-              className="w-7 h-7 text-colorStar md:w-12 md:h-12 md:pb-2 cursor-pointer hidden md:flex"
+              className="w-7 h-7 text-colorStar md:w-12 md:h-12 md:pb-2 cursor-pointer
+              hidden md:flex "
               data-slot="icon"
               fill="none"
               strokeWidth="1.5"
@@ -41,12 +42,17 @@ export const StoreNavBar = ({ handleCart }) => {
                 d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
               ></path>
             </svg>
-            <p className="font-josefin text-center px-3 text-white py-3 text-xl hidden md:flex">
+            {/* <div className="flex flex-col"> */}
+            <p
+              className="font-josefin text-center px-3 text-white py-3 
+            text-xl hidden md:flex mr-[60px]"
+            >
               Hardware Market
             </p>
+            {/* </div> */}
           </div>
         </Link>
-        <div className="flex items-center justify-center lg:space-x-20 ml-10">
+        <div className="flex items-center justify-center lg:space-x-20">
           {/* Logo */}
           <svg
             className="w-12 h-12 text-colorStar lg:hidden mr-14"
@@ -66,13 +72,13 @@ export const StoreNavBar = ({ handleCart }) => {
           </svg>
 
           {/* Barra De Busqueda */}
-          <div className="flex md:px-20 mr-14">
+          <div className="flex md:px-20 mr-14 md:ml-14 ">
             <input
               type="text"
               placeholder="Buscar"
               className="h-8 rounded-l-[10px] w-[100px] p-3 
               font-josefin bg-[#E8E1E1] text-black 
-              outline-none text-[15px] sm:w-[300px]"
+              outline-none text-[15px] sm:w-[300px] "
             />
             <div
               className="h-8 rounded-r-[10px] w-10 p-2 font-josefin bg-colorStar
@@ -106,17 +112,13 @@ export const StoreNavBar = ({ handleCart }) => {
 
         {/* Links Navegacion */}
         <div className="space-x-8 hidden xl:flex">
-          <a href="/startPage" className="font-josefin text-white px-2 py-3">
-            Inicio
-          </a>
-          <a href="#" className="font-josefin text-white px-2 py-3">
-            Favoritos
-          </a>
           <a href="#" className="font-josefin text-white px-2 py-3">
             {user?.user ? (
-              <p onClick={() => navigate("/profile-detail")}>
-                {user.user.first_name}
-              </p>
+              <div className="flex justify-center items-center h-10 w-10 rounded-[15px] bg-colorStar">
+                <p onClick={() => navigate("/profile-detail")}>
+                  {user.user.first_name[0] + user.user.last_name[0]}
+                </p>
+              </div>
             ) : (
               <p onClick={() => navigate("/login")}>Iniciar Sesión</p>
             )}
