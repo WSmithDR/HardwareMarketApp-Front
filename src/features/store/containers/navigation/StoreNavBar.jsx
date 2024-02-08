@@ -14,37 +14,17 @@ export const StoreNavBar = ({ handleCart }) => {
   const dispatch = useDispatch();
   return (
     <>
-      {/* Header primario (logo y nombre de la marca) */}
-      {/* <header className="flex items-center px-5 bg-colorButtons shadow h-[40px] mt-1 mr-2 ml-2 rounded-t-[10px] md:hidden md:px-5">
-        <svg
-          className="w-7 h-7 text-colorStar"
-          data-slot="icon"
-          fill="none"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
-          ></path>
-        </svg>
-        <p className="font-josefin text-center  text-white px-2 py-3 text-xl">
-          Hardware Market
-        </p>
-      </header> */}
-      {/* Header segundario (contenido) */}
       <header
-        className="flex items-center justify-center space-x-20 bg-colorButtons shadow h-[70px] pt-1 rounded-[10px] md:rounded-b-std 
-      ml-3 mr-3 md:rounded-[10px] mt-2 md:h-[95px] w-auto"
+        className="flex items-center justify-center space-x-1 md:space-x-2 bg-colorButtons shadow h-[70px] pt-1 rounded-[10px] md:rounded-b-std 
+        ml-3 mr-3 md:rounded-[10px] mt-2 md:h-[95px] w-auto"
       >
         {/* Navegacion Desktop */}
         {/* <div className="flex  items-center p-2 w-auto"> */}
         <Link to="/startPage">
-          <div className="items-center md:px-5 bg-colorButtons shadow md:h-[40px] md:mt-1 md:mr-2  md:ml-2 hidden lg:flex">
+          <div
+            className="items-center md:px-5 bg-colorButtons shadow md:h-[40px] md:mt-1 md:mr-2 
+           md:ml-2 hidden lg:flex"
+          >
             <svg
               className="w-7 h-7 text-colorStar md:w-12 md:h-12 md:pb-2 cursor-pointer hidden md:flex"
               data-slot="icon"
@@ -66,10 +46,10 @@ export const StoreNavBar = ({ handleCart }) => {
             </p>
           </div>
         </Link>
-        <div className="flex items-center lg:space-x-20 space-x-9 ">
+        <div className="flex items-center justify-center lg:space-x-20 ml-10">
           {/* Logo */}
           <svg
-            className="w-12 h-12 text-colorStar lg:hidden ml-1"
+            className="w-12 h-12 text-colorStar lg:hidden mr-14"
             data-slot="icon"
             fill="none"
             strokeWidth="1.5"
@@ -86,7 +66,7 @@ export const StoreNavBar = ({ handleCart }) => {
           </svg>
 
           {/* Barra De Busqueda */}
-          <div className="flex md:px-20">
+          <div className="flex md:px-20 mr-14">
             <input
               type="text"
               placeholder="Buscar"
@@ -96,7 +76,7 @@ export const StoreNavBar = ({ handleCart }) => {
             />
             <div
               className="h-8 rounded-r-[10px] w-10 p-2 font-josefin bg-colorStar
-              cursor-pointer flex items-center justify-center
+              cursor-pointer flex items-center justify-center 
               "
             >
               <img src={logoSearch} alt="search" className="w-5" />
@@ -105,9 +85,9 @@ export const StoreNavBar = ({ handleCart }) => {
 
           {/* Menu Hamburguesa */}
           <svg
-            className="text-white py-1 w-12 h-12 cursor-pointer lg:hidden
+            className="text-white py-1 w-12 h-12 cursor-pointer xl:hidden
             hover:bg-colorStar rounded  transition-colors focus:ring-3 focus:ring-colorStar
-            flex justify-end"
+            flex "
             data-slot="icon"
             fill="none"
             strokeWidth="1.5"
@@ -125,7 +105,7 @@ export const StoreNavBar = ({ handleCart }) => {
         </div>
 
         {/* Links Navegacion */}
-        <div className="space-x-8 hidden md:flex">
+        <div className="space-x-8 hidden xl:flex">
           <a href="/startPage" className="font-josefin text-white px-2 py-3">
             Inicio
           </a>
@@ -144,7 +124,7 @@ export const StoreNavBar = ({ handleCart }) => {
         </div>
 
         {/* Carrito de compras */}
-        <div className="flex items-center flex-col md:px-7">
+        <div className=" hidden items-center flex-col md:px-7 xl:flex">
           <button
             onClick={() => handleCart()}
             className="font-josefin text-colorStar -mt-4 "
@@ -157,7 +137,7 @@ export const StoreNavBar = ({ handleCart }) => {
 
         {user?.user ? (
           <p
-            className="text-white cursor-pointer text-[13px]"
+            className="text-white cursor-pointer text-[13px] hidden"
             onClick={() => dispatch(userActions.userLogOutAction())}
           >
             Cerrar Sesion
