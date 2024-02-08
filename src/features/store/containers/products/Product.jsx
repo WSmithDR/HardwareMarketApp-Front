@@ -1,30 +1,33 @@
-import { CartBtn } from "../../components/Product/CartBtn"
+// import React from "react";
+// import { useSelector } from "react-redux";
 
-import { Name } from "../../components/Product/Name"
+import { Link } from "react-router-dom";
 
-import { PrdRating } from "../../components/Product/PrdRating"
-import { Price } from "../../components/Product/Price"
+export const Product = (prop) => {
+  const { title, description, price, trademark, stock } = prop;
 
-import { StockLeft } from "../../components/Product/StockLeft"
+  return (
+    <div className="flex bg-[#DCDBDB] shadow-lg rounded-[20px] ">
+      <div className="flex justify-center items-center w-30 h-[220px]">
+        <Link to="/detail">
+          <img
+            className="h-[220px] w-[100%] rounded-l-[20px] cursor-pointer"
+            src="./public/images/grafica.jpg"
+            alt={title}
+          />
+        </Link>
+      </div>
 
-export const Product = ({title,price,  score,  stock,className})=>{
-    return(
-        <div className={className}>
-            <div className="grid grid-cols-2  bg-bgProduct max-[320px]:w-[350px]  max-[375px]:w-[300px] max-[425px]:w-[350px] max-[425px]:mx-auto min-[1200px]:w-[300px]">
-                <div className="grid col-[1/2]">
-                    {/* <Img url={img} alt={name}/> */}
-                </div>
-                <div className="grid col-[2/e] p-[20px]">
-                    <Name name={title}/>
-                    <PrdRating score={score}/>
-                    <Price price={price}/>
-                    <StockLeft stock={stock}/>
-                    {/* <Offer offer={offer}/> */}
-                    {/* <PrdCondition condition={condition}/> */}
-                    {/* <Sold sold={sold}/> */}
-                    <CartBtn/>
-                </div>
-            </div>
-        </div>
-    )
-}
+      <div className="flex flex-col font-josefin text-black px-5 space-y-3 mt-5">
+        <Link to="/detail">
+          <strong className="text-[20px] cursor-pointer">{title}</strong>
+          <p className="text-[20px] cursor-pointer">{description}</p>
+          <strong className="text-[20px] cursor-pointer">${price}</strong>
+        </Link>
+        <h2>{trademark}</h2>
+        <p>{stock}</p>
+        {/* <div className="flex justify-center items-center">⭐⭐⭐⭐</div> */}
+      </div>
+    </div>
+  );
+};

@@ -1,20 +1,15 @@
-
-import {Filters} from "./filters/Filters";
+import { Filters } from "./filters/Filters";
 import { Products } from "./products/Products";
-import { useDispatch, useSelector } from "react-redux";
-export const StoreContainer = () => { 
+import { useSelector } from "react-redux";
 
-  const shippingIsfree = useSelector(state => state.products.shippingIsFree)
-  
-  const products = useSelector(state => state.products.products)
-  const categorySelected = useSelector(state => state.products.categorySelected)
-
-  const prodsPorCategory = products.filter((prod) => prod.category == categorySelected)
-
-  const prodsPorCategoryAndShippingFree = prodsPorCategory.filter((prod) =>   shippingIsfree == true   && prod.deliveryMethod[0] == "homePickup")
-  console.log(prodsPorCategoryAndShippingFree)
-  
-
+export const StoreContainer = () => {
+  const products = useSelector((state) => state.products.products);
+  const categorySelected = useSelector(
+    (state) => state.products.categorySelected
+  );
+  const prodsPorCategory = products.filter(
+    (prod) => prod.category == categorySelected
+  );
   return (
     <div className=" h-fit   flex flex-col  min-[768px]:flex-row min-[768px]:w-[100vw] " >
    
@@ -31,12 +26,8 @@ export const StoreContainer = () => {
           <Products {... prod}  key = {index} />
         ))}
 
-          {shippingIsfree == true && prodsPorCategoryAndShippingFree.map((prod , index) => (
-            <Products {...prod } key = {index }/>
-          ))}
 
       </div>
-
     </div>
   );
 };
