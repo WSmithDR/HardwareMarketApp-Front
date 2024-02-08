@@ -1,9 +1,7 @@
-import React from 'react'
+// import React from 'react'
 
 const ProfileDetail = () => {
-  return (
-    <div>detalles y campos del usuario</div>
-  )
-}
+  return <div>detalles y campos del usuario</div>;
+};
 
-export default ProfileDetail
+export default ProfileDetail;
