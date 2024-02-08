@@ -29,6 +29,32 @@ const Categories = (prop) => {
         prop.hidden ? "hidden" : "flex"
       }`}
     >
+<<<<<<< HEAD
+<<<<<<< HEAD
+      {categoriesList.map((category, index) => (
+        <div className="p-4" key={index}>
+          <h2
+            className="text-[16px] cursor-pointer"
+            onClick={(e) => handleUlAndCategory(e)}
+            id={category.id}
+          >
+            {category.categoryName}
+          </h2>
+          <ul
+            className={`pl-5  flex-col gap-5 mt-5 ${
+              id == category.id ? "flex" : "hidden"
+            }`}
+          >
+            {category.subCategories.map((subCategory, index) => (
+              <li className="cursor-pointer" key={index}>
+                {subCategory}
+              </li>
+            ))}
+          </ul>
+        </div>
+=======
+=======
+>>>>>>> 09b117ff07bdae420023d049fc7e24dd7f2f6ee7
       {categoriesList.map((category) => (
         <div className="p-4" key={category.id}>
         <h2
@@ -45,6 +71,10 @@ const Categories = (prop) => {
          ))}
         </ul>
       </div>
+<<<<<<< HEAD
+>>>>>>> 9f7c0a135b3c82054f7f9d039fa29c0c255b4bd9
+=======
+>>>>>>> 09b117ff07bdae420023d049fc7e24dd7f2f6ee7
       ))}
     </div>
   );
