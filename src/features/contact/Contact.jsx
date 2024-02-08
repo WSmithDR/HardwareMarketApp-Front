@@ -1,29 +1,41 @@
 import { Navbar } from "../../components/navbar/Navbar";
 import { Formik, Field, Form } from "formik";
+import axios from "axios";
 
 const Contact = () => {
+  const handleSubmit = async (data) => {
+    const res = await axios.post(
+      "https://hardwaremarket-backen.onrender.com/v1/api/users/contact", data
+    ).then(function (response) {
+      return response;
+    })
+      .catch(function (error) {
+        return error;
+      });
+    console.log(res);
+  }
   return (
     <>
       <div className="min-h-screen   flex flex-col font-josefin items-center justify-between">
         <Navbar />
         <h3 className="text-[30px] max-[425px]:text-center mt-28">Ponete en contacto con nosotros.</h3>
         <Formik
-          initialValues={{ name: "", email: "", texto: "" }}
+          initialValues={{ fromUser: "", fromEmail: "", message: "" }}
           validate={(values) => {
             const errors = {};
-            if (!values.name) {
-              errors.name = "campo requerido";
+            if (!values.fromUser) {
+              errors.fromUser = "campo requerido";
             }
-            if (!values.email) {
-              errors.email = "campo requerido";
+            if (!values.fromEmail) {
+              errors.fromEmail = "campo requerido";
             }
-            if (!values.texto) {
-              errors.texto = "campo requerido";
+            if (!values.message) {
+              errors.message = "campo requerido";
             }
             return errors;
           }}
           onSubmit={(values) => {
-            console.log(values);
+            handleSubmit(values);
           }}
         >
           {({ errors, touched }) => (
@@ -33,25 +45,25 @@ const Contact = () => {
                   <Field
                     className="text-[17px] shadow-xl font-josefin mb-1 w-[260px] h-[35px] rounded-std px-4 outline-0 bg-[#C8C7C7] md:w-[350px] md:h-[40px] "
                     placeholder="Nombre"
-                    name="name"
+                    name="fromUser"
                     type="text"
                   ></Field>
-                  {errors.name && touched.name ? (
-                    <p className="text-red-600">{errors.name}</p>
+                  {errors.fromUser && touched.fromUser ? (
+                    <p className="text-red-600">{errors.fromUser}</p>
                   ) : null}
                   <Field
                     className="text-[17px] shadow-xl font-josefin mb-1 w-[260px] h-[35px] rounded-std px-4 outline-0 bg-[#C8C7C7] md:w-[350px] md:h-[40px]"
                     placeholder="Correo"
-                    name="email"
+                    name="fromEmail"
                   ></Field>
-                  {errors.email && touched.email ? (
-                    <p className="text-red-600">{errors.email}</p>
+                  {errors.fromEmail && touched.fromEmail ? (
+                    <p className="text-red-600">{errors.fromEmail}</p>
                   ) : null}
                 </div>
                 <Field
                   as="textarea"
                   className="resize-none w-[350px] h-[250px] outline-none p-2 bg-[#C8C7C7] max-[320px]:w-[300px]"
-                  name="texto"
+                  name="message"
                 ></Field>
               </div>
               <button

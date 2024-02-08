@@ -29,8 +29,8 @@ const Categories = (prop) => {
         prop.hidden ? "hidden" : "flex"
       }`}
     >
-      {categoriesList.map((category, index) => (
-        <div className="p-4" key={index}>
+      {categoriesList.map((category) => (
+        <div className="p-4" key={category.id}>
           <h2
             className="text-[16px] cursor-pointer"
             onClick={(e) => handleUlAndCategory(e)}
@@ -44,7 +44,7 @@ const Categories = (prop) => {
             }`}
           >
             {category.subCategories.map((subCategory, index) => (
-              <li className="cursor-pointer" key={index}>
+              <li key={index} className="cursor-pointer">
                 {subCategory}
               </li>
             ))}
