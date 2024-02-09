@@ -139,7 +139,7 @@ export const StoreNavBar = ({ handleCart }) => {
 
         {user?.user ? (
           <p
-            className="text-white cursor-pointer text-[13px] hidden"
+            className="text-white cursor-pointer text-[13px] hidden md:flex"
             onClick={() => dispatch(userActions.userLogOutAction())}
           >
             Cerrar Sesion
