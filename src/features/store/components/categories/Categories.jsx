@@ -25,7 +25,7 @@ const Categories = (prop) => {
   };
   return (
     <div
-      className={` flex-col h-fit w-[260px] bg-colorButtons text-white  rounded-[3px] text-[14px]  min-[768px]: ${
+      className={` flex-col h-fit w-[260px] bg-colorButtons items-center justify-center text-white  rounded-[3px] text-[14px]  min-[768px]: ${
         prop.hidden ? "hidden" : "flex"
       }`}
     >

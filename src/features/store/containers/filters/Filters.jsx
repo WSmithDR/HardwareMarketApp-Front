@@ -15,7 +15,7 @@ export const Filters = () => {
     setHiddenFilter(!hiddenFilter);
   };
   return (
-    <div className=" w-[400px] h-fit flex flex-col   p-5 gap-10  ">
+    <div className=" w-[400px] h-fit flex flex-col md:px-20 md:mt-10 gap-10 mt-8">
       <div className=" max-[425px]:w-[350px] max-[425px]:flex justify-between">
         <div>
           <h1 className="text-[20px]">Tarjetas de video</h1>
@@ -23,7 +23,7 @@ export const Filters = () => {
         </div>
       </div>
       <div
-        className="flex items-center   w-[100%]  h-[40px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-2 cursor-pointer"
+        className="flex items-center w-[100%] h-[40px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-2 cursor-pointer"
         onClick={() => handleCategories()}
       >
         Categories

@@ -7,8 +7,8 @@ export const Product = (prop) => {
   const { title, description, price, trademark, stock } = prop;
 
   return (
-    <div className="flex bg-[#DCDBDB] shadow-lg rounded-[20px] ">
-      <div className="flex justify-center items-center w-30 h-[220px]">
+    <div className="flex flex-col sm:flex-row items-center justify-center bg-[#DCDBDB] shadow-lg  md:rounded-[20px] ">
+      <div className="flex flex-row  justify-center items-center w-26 h-[220px]">
         <Link to="/detail">
           <img
             className="h-[220px] w-[100%] rounded-l-[20px] cursor-pointer"

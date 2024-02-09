@@ -20,9 +20,10 @@ export const StoreScreen = () => {
   return (
     <div
       className="h-[100%] justify-between min-[2300px]:h-[100%]
-    flex flex-col  font-josefin relative overflow-hidden "
+    flex flex-col  font-josefin relative overflow-hidden ml-3 mr-3"
     >
       <StoreNavBar handleCart={handleCart} cartOpen={cartOpen} />
+
       <Navbar2 />
 
       <div

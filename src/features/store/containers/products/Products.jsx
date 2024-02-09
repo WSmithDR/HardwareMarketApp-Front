@@ -7,7 +7,7 @@ export const Products = () => {
 
   // Productos (en general)
   return (
-    <div className="space-y-10 mt-10">
+    <div className="space-y-10 mt-36 md:mt-10">
       {products.map((product, index) => {
         return (
           <div key={index}>

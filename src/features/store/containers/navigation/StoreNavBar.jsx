@@ -6,28 +6,34 @@ import { useDispatch, useSelector } from "react-redux";
 import * as userActions from "../../../../redux/userReducer/userActions";
 
 import { PropTypes } from "prop-types";
+import { useState } from "react";
 
 export const StoreNavBar = ({ handleCart }) => {
   const user = useSelector((state) => state.user.user);
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+  const [menu, setMenu] = useState(false);
+
+  const handleMenu = () => {
+    setMenu(!menu);
+  };
+
   return (
     <>
       <header
-        className="flex items-center justify-center space-x-1 md:space-x-2 bg-colorButtons shadow h-[70px] pt-1 rounded-[10px] md:rounded-b-std 
-        ml-3 mr-3 md:rounded-[10px] mt-2 md:h-[95px] w-auto"
+        className="flex items-center justify-center md:space-x-2 bg-colorButtons shadow h-[70px] pt-1 rounded-[10px] md:rounded-b-std md:rounded-[10px] mt-2 md:h-[95px] w-auto
+"
       >
         {/* Navegacion Desktop */}
         {/* <div className="flex  items-center p-2 w-auto"> */}
         <div
           className="items-center justify-center md:px-5 bg-colorButtons shadow md:h-[40px] md:mt-1 md:mr-2 
-            md:ml-2 hidden lg:flex"
+            md:ml-2 hidden lg:flex "
         >
           {/* <Link to="/startPage" className="w"> */}
           <svg
             className="w-7 h-7 text-colorStar md:w-12 md:h-12 md:pb-2 cursor-pointer
-              hidden md:flex ml-30"
+              hidden md:flex sm:h-7 sm:w-7"
             data-slot="icon"
             fill="none"
             strokeWidth="1.5"
@@ -57,7 +63,7 @@ export const StoreNavBar = ({ handleCart }) => {
         <div className="flex items-center justify-center lg:space-x-20">
           {/* Logo */}
           <svg
-            className="w-12 h-12 text-colorStar lg:hidden mr-14"
+            className="w-12 h-12 text-colorStar lg:hidden ml-10"
             data-slot="icon"
             fill="none"
             strokeWidth="1.5"
@@ -74,7 +80,7 @@ export const StoreNavBar = ({ handleCart }) => {
           </svg>
 
           {/* Barra De Busqueda */}
-          <div className="flex md:px-20 mr-14 md:ml-14 ">
+          <div className="flex md:px-20 mr-26 p-5 md:ml-14">
             <input
               type="text"
               placeholder="Buscar"
@@ -94,8 +100,8 @@ export const StoreNavBar = ({ handleCart }) => {
           {/* Menu Hamburguesa */}
           <svg
             className="text-white py-1 w-12 h-12 cursor-pointer xl:hidden
-            hover:bg-colorStar rounded  transition-colors focus:ring-3 focus:ring-colorStar
-            flex "
+            hover:border-2 hover:border-gray-700 hover:bg-slate-500  rounded-[10px]  transition-colors focus:ring-4 focus:ring-gray-500
+            flex mr-10"
             data-slot="icon"
             fill="none"
             strokeWidth="1.5"
@@ -103,6 +109,7 @@ export const StoreNavBar = ({ handleCart }) => {
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
+            onClick={handleMenu}
           >
             <path
               strokeLinecap="round"
@@ -149,11 +156,17 @@ export const StoreNavBar = ({ handleCart }) => {
         ) : null}
 
         {/* Navegacion Mobile (menu desplegable)*/}
-        <div className="bg-colorStar p-4 mt-1 shadow space-y-1 pb-24 pt-2 rounded-b-xl sm:hidden hidden">
+      </header>
+      {menu && (
+        <div
+          className="bg-colorButtons p-4 shadow-lg space-y-1 pb-24 pt-10 rounded-b-xl
+          rounded-[5px] absolute mt-[78px] w-[100%] sm:mt-20 md:mt-[100px]"
+        >
           <a
             href="#"
-            className="flex items-center text-black font-josefin  
-            transition-colors hover:bg-colorButtons hover:text-white px-2 py-3  rounded-md "
+            className="flex items-center text-black font-josefin border-2 shadow-md
+            transition-colors hover:bg-colorButtons hover:text-white px-2 py-3  rounded-[10px]
+            bg-colorStar"
           >
             <svg
               className=" w-8 h-8 m-1 px-1"
@@ -175,8 +188,10 @@ export const StoreNavBar = ({ handleCart }) => {
           </a>
           <a
             href="#"
-            className="flex items-center font-josefin
-            transition-colors bg-colorButtons text-white px-2 py-3 rounded-md "
+            className="flex items-center font-josefin border-2 shadow-md
+           bg-colorStar text-black px-2 py-3 rounded-[10px] hover:bg-colorButtons transition-colors
+           hover:text-white
+           "
           >
             <svg
               className=" w-8 h-8 m-1 px-1"
@@ -198,8 +213,9 @@ export const StoreNavBar = ({ handleCart }) => {
           </a>
           <a
             href="#"
-            className="flex items-center text-black font-josefin
-            transition-colors hover:bg-colorButtons hover:text-white px-2 py-3 rounded-md "
+            className="flex items-center text-black font-josefin border-2 shadow-md
+            transition-colors hover:bg-colorButtons hover:text-white px-2 py-3 rounded-[10px]
+            bg-colorStar "
           >
             <svg
               className=" w-8 h-8 m-1 px-1"
@@ -220,7 +236,7 @@ export const StoreNavBar = ({ handleCart }) => {
             Favoritos
           </a>
         </div>
-      </header>
+      )}
     </>
   );
 };
