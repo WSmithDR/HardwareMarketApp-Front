@@ -23,7 +23,7 @@ export const StoreNavBar = ({ handleCart }) => {
         <Link to="/startPage">
           <div
             className="items-center md:px-5 bg-colorButtons shadow md:h-[40px] md:mt-1 md:mr-2 
-           md:ml-2 hidden lg:flex"
+            md:ml-2 hidden lg:flex"
           >
             <svg
               className="w-7 h-7 text-colorStar md:w-12 md:h-12 md:pb-2 cursor-pointer
