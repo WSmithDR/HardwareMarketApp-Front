@@ -34,7 +34,7 @@ export const ProfileContent = () => {
                             <small className="text-[#8dcbf8] p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem cumque voluptatem eaque suscipit fuga, totam excepturi assumenda! Excepturi odio, nisi totam maxime at, quas possimus sunt fugiat sapiente ea necessitatibus.</small>
                         </div>
                         <div className="text-white font-serafin">
-                            <h1 className="text-2xl mt-2 mb-2">Información Detallada</h1>
+                            <h1 className="text-2xl mt-2 mb-2 border-l-2 border-[#386fcf] pl-2">Información Detallada</h1>
                             <ul className="flex flex-col gap-2">
                                 <li className="flex gap-2">
                                     <h2 className="text-[#4c9af9]">Nombre Completo:</h2>
@@ -46,19 +46,19 @@ export const ProfileContent = () => {
                                 </li>
                                 <li className="flex gap-2">
                                     <h2 className="text-[#4c9af9]">Pais:</h2>
-                                    <input type="text" placeholder="Ingrea tu pais de residencia" className="outline-none bg-transparent w-[250px] border-b border-[#4284b3] placeholder-[#8dcbf8]"/>
+                                    <input type="text" maxLength={15} placeholder="Ingrea tu pais de residencia" className="outline-none bg-transparent w-[250px] border-b border-[#4284b3] placeholder-[#8dcbf8]"/>
                                 </li>
                                 <li className="flex gap-2">
-                                    <h2 className="text-[#4c9af9]">Numero de telefono/celular:</h2>
-                                    <input type="number" placeholder="11-1111-1111" className="outline-none bg-transparent w-[100px] border-b border-[#4284b3] placeholder-[#8dcbf8]"/>
+                                    <h2 className="text-[#4c9af9] max-[391px]:w-[130px]">Numero de telefono/celular:</h2>
+                                    <input type="number" placeholder="11-1111-1111" className="outline-none bg-transparent w-[120px] border-b border-[#4284b3] placeholder-[#8dcbf8]"/>
                                 </li>
                                 <li className="flex gap-2">
                                     <h2 className="text-[#4c9af9]">LinkedIn:</h2>
-                                    <input type="number" placeholder="in/" className="outline-none bg-transparent w-[150px] border-b border-[#4284b3] placeholder-[#8dcbf8]"/>
+                                    <input type="text" placeholder="in/" className="outline-none bg-transparent w-[150px] border-b border-[#4284b3] placeholder-[#8dcbf8]"/>
                                 </li>
                                 <li className="flex gap-2">
                                     <h2 className="text-[#4c9af9]">GitHub:</h2>
-                                    <input type="number" placeholder="username" className="outline-none bg-transparent w-[150px] border-b border-[#4284b3] placeholder-[#8dcbf8]"/>
+                                    <input type="text" placeholder="username" className="outline-none bg-transparent w-[150px] border-b border-[#4284b3] placeholder-[#8dcbf8]"/>
                                 </li>
                             </ul>
                         </div>
