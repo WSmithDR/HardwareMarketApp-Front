@@ -62,9 +62,9 @@ export const Cart = ({ cartOpen, handleCart }) => {
 
     return (
         <div>
-            <div className="h-[60px] w-[60px] rounded-[50%] overflow-hidden translate-x-[-6rem] translate-y-[1rem] fixed">
+            <div className="h-[60px] w-[60px] rounded-[50%] overflow-hidden translate-x-[-6rem] translate-y-[1rem] fixed max-[321px]:translate-x-[-10rem]">
                 <button onClick={() => handleSmoothScroll()}>
-                    <img src="/public/images/carFast.png" alt="carritoMovil" className={cartOpen ? " bg-[#05607C] h-[60px] w-[60px] p-2 transition-all duration-250" : "opacity-0 transition-all duration-250"} />
+                    <img src="/public/images/carFast.png" alt="carritoMovil" className={cartOpen ? " bg-[#05607C] h-[60px] w-[60px] p-2 transition-all duration-250" : "h-[0] w-[0] transition-all duration-250"} />
                 </button>
             </div>
             <div className={cartOpen ? closedStyle : openStyle} /*style={{'border-bottom-right-radius':'20px','border-bottom-left-radius':'20px'}}*/>
