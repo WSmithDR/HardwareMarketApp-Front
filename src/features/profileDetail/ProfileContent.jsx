@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 export const ProfileContent = () => {
@@ -7,6 +8,8 @@ export const ProfileContent = () => {
     const upperFirstLetter = (word) => {
         return word.charAt(0).toUpperCase() + word.slice(1);
     }
+
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -63,8 +66,9 @@ export const ProfileContent = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="flex items-center justify-center ml-3 mr-3 mt-3 w-[700px] h-[150px] p-5 bg-[#01242fe3] rounded-std max-[768px]:w-[auto] text-center">
-                        <h1 className="text-white font-josefin text-3xl">Lista de mis Compras</h1>
+                    <div className="flex flex-col items-center justify-center ml-3 mr-3 mt-3 w-[700px] h-[150px] p-5 bg-[#01242fe3] rounded-std max-[768px]:w-[auto] text-center">
+                        <h1 className="text-white font-josefin text-3xl mb-3">Lista de mis Compras</h1>
+                        <button onClick={()=> navigate("/store")} className="text-white font-josefin bg-[#01242fe3] p-2 rounded-std hover:bg-[#307a90b9]">Ir a la tienda</button>
                     </div>
                 </div>
 
