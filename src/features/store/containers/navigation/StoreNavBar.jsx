@@ -127,7 +127,7 @@ export const StoreNavBar = ({ handleCart }) => {
                 <p onClick={() => navigate("/profile-detail")}>
                   {user.user.first_name[0] + user.user.last_name[0]}
                 </p>
-              </div>
+              </div> //Hello sin conexion
             ) : (
               <p onClick={() => navigate("/login")}>Iniciar Sesión</p>
             )}
