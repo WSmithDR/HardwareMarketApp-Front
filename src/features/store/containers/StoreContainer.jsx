@@ -1,19 +1,34 @@
-import { Filters } from "./filters/Filters";
+
+
+import {Filters} from "./filters/Filters";
 import { Products } from "./products/Products";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+
 export const StoreContainer = () => { 
 
-  const shippingIsfree = useSelector(state => state.products.shippingIsFree)
-  
+
+  // productos totales del estado global.
   const products = useSelector(state => state.products.products)
-  const categorySelected = useSelector(state => state.products.categorySelected)
+  
+
+  // estado para verificar si se eligio o no una categoria, caso contrario se queda en null. 
+  const selectedCategory = useSelector(state => state.products.categorySelected)
 
   const prodsPorCategory = products.filter((prod) => prod.category == categorySelected)
 
   const prodsPorCategoryAndShippingFree = prodsPorCategory.filter((prod) =>   shippingIsfree == true   && prod.deliveryMethod[0] == "homePickup")
   console.log("hola")
   
+>>>>>>>>> Temporary merge branch 2
 
+export const StoreContainer = () => {
+  const products = useSelector((state) => state.products.products);
+  const categorySelected = useSelector(
+    (state) => state.products.categorySelected
+  );
+  const prodsPorCategory = products.filter(
+    (prod) => prod.category == categorySelected
+  );
   return (
     <div className=" h-fit   flex flex-col  min-[768px]:flex-row min-[768px]:w-[100vw] " >
    
@@ -26,15 +41,13 @@ export const StoreContainer = () => {
           <Products  {...prod} key={index} />
           
         ))}
-        {/* {categorySelected !== null && prodsPorCategory.map((prod , index) => (
+        {categorySelected !== null && prodsPorCategory.map((prod , index) => (
           <Products {... prod}  key = {index} />
-        ))} */}
-         {/* {shippingIsfree == true && prodsPorCategoryAndShippingFree.map((prod , index) => (
-            <Products {...prod } key = {index }/>
-          ))} */}
+        ))}
 
 
       </div>
+
     </div>
   );
 };

@@ -27,7 +27,7 @@ const Categories = (prop) => {
     <div
       className={` flex-col h-fit w-[260px] bg-colorButtons text-white  rounded-[3px] text-[14px]  min-[768px]: ${
         prop.hidden ? "hidden" : "flex"
-      }`}
+      } `}
     >
       {categoriesList.map((category) => (
         <div className="p-4" key={category.id}>

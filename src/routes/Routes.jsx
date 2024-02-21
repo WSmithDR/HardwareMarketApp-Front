@@ -8,6 +8,7 @@ import { About } from "../features/About/About";
 import Contact from "../features/contact/Contact";
 import { Detail } from "../features/detail/Detail";
 import ProfileDetail from "../features/profileDetail/ProfileDetail";
+import ContactSuccessFully from "../features/contact-sucessfully/ContactSuccessFully";
 
 
 const Routes = () => {
@@ -21,8 +22,9 @@ const Routes = () => {
         <Route path="/about" element={<About />}></Route>
         <Route path="/store" element={<StoreScreen />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/detail" element={<Detail />}></Route>
-        <Route path="/profile-detail" element = {<ProfileDetail/>}></Route>
+        <Route path="/detail/:productId" element={<Detail />}></Route>
+        <Route path="/profile-detail/" element ={<ProfileDetail/>}></Route>
+        <Route path = "/contact-successfully/:email" element = {<ContactSuccessFully/>}></Route>
       
       </HardWareRoutes>
     </>

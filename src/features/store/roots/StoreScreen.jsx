@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import Footer from "../../../components/footer/Footer";
+import Footer from "../../../components/footer/Footer";
 import { StoreContainer } from "../containers/StoreContainer";
 // import { Filters } from "../containers/filters/Filters"
 import { StoreNavBar } from "../containers/navigation/StoreNavBar";
@@ -20,21 +20,21 @@ export const StoreScreen = () => {
   return (
     <div
       className="h-[100%] justify-between min-[2300px]:h-[100%]
-    flex flex-col  font-josefin relative overflow-hidden "
+    flex flex-col  font-josefin relative overflow-hidden  "
     >
       <StoreNavBar handleCart={handleCart} cartOpen={cartOpen} />
       <Navbar2 />
 
       <div
         className={`${
-          products.length ? "h-fit" : "h-[100vh]"
+          products?.length ? "h-fit" : "h-[100vh]"
         }  w-[100%] flex justify-between `}
         id="div-filtros-y-productos"
       >
         <StoreContainer />
         <Cart handleCart={handleCart} cartOpen={cartOpen} />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
