@@ -127,15 +127,15 @@ export const StoreNavBar = ({ handleCart }) => {
 
         {/* Links Navegacion */}
         <div className="space-x-8 hidden xl:flex">
-          <a href="#" className="font-josefin text-white px-2 py-3">
+          <a  className="font-josefin text-white px-2 py-3">
             {user?.user ? (
-              <div className="flex justify-center items-center h-10 w-10 rounded-[15px] bg-colorStar">
+              <div className="flex justify-center items-center h-10 w-10 rounded-[15px] bg-colorStar hover:cursor-pointer">
                 <p onClick={() => navigate("/profile-detail")}>
                   {user.user.first_name[0] + user.user.last_name[0]}
                 </p>
               </div>
             ) : (
-              <p onClick={() => navigate("/login")}>Iniciar Sesión</p>
+              <p className="hover:cursor-pointer"  onClick={() => navigate("/login")}>Iniciar Sesión</p>
             )}
           </a>
         </div>
@@ -154,7 +154,7 @@ export const StoreNavBar = ({ handleCart }) => {
 
         {user?.user ? (
           <p
-            className="text-white cursor-pointer text-[13px] hidden"
+            className="text-white cursor-pointer text-[13px] "
             onClick={() => dispatch(userActions.userLogOutAction())}
           >
             Cerrar Sesion

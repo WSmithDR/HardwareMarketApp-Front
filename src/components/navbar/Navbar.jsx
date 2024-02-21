@@ -25,7 +25,7 @@ export const Navbar = () => {
       <div className="hover:text-colorStar transition-colors hover:text-[110%]">
         {user?.user ? (
           null
-        ) : ( <a href="/login">Iniciar sesion</a>)}
+        ) : (<a href="/login">Iniciar sesion</a>)}
       </div>
       {/* <div className="w-[40%] h-0 border border-[#000000]"></div> */}
     </nav>

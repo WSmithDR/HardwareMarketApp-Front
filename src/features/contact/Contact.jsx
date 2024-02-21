@@ -1,18 +1,15 @@
 import { Navbar } from "../../components/navbar/Navbar";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate()
   const handleSubmit = async (data) => {
     const res = await axios.post(
-      "https://hardwaremarket-backen.onrender.com/v1/api/users/contact", data
-    ).then(function (response) {
-      return response;
-    })
-      .catch(function (error) {
-        return error;
-      });
-    console.log(res);
+      "https://hardwaremarketapp-back.onrender.com/v1/api/users/contact", data
+    )
+    return res
   }
   return (
     <>
@@ -34,8 +31,13 @@ const Contact = () => {
             }
             return errors;
           }}
-          onSubmit={(values) => {
-            handleSubmit(values);
+          onSubmit={async(values) => {
+           const send =  await handleSubmit(values);
+           if(send.status === 200){
+            setTimeout(() => {
+              navigate(`/contact-successfully/${values.fromEmail}`)
+            }, 1000)
+           }
           }}
         >
           {({ errors, touched }) => (

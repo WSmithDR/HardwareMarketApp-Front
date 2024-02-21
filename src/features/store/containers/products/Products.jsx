@@ -3,8 +3,6 @@ import { useSelector } from "react-redux";
 import { Product } from "./Product";
 
 export const Products = (props) => {
-  
-  
   // Productos (en general)
   return (
     <div className="space-y-10 mt-10">
@@ -18,6 +16,8 @@ export const Products = (props) => {
               price={props.price}
               trademark={props.trademark}
               stock={props.stock}
+              id = {props._id}
+         
             />
           </div>
        
