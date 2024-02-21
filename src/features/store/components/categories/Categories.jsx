@@ -31,20 +31,25 @@ const Categories = (prop) => {
     >
       {categoriesList.map((category) => (
         <div className="p-4" key={category.id}>
-        <h2
-          className="text-[16px] cursor-pointer"
-          on  onClick={(e) => handleUlAndCategory(e)}
-          id={category.id}
-        >
-          {category.categoryName}
-        </h2>
-        <ul   className={`pl-5  flex-col gap-5 mt-5 ${
-       id == category.id ? "flex" : "hidden"}` } >
-         {category.subCategories.map((subCategory , index) => (
-           <li  key={index}   className="cursor-pointer">{subCategory}</li>
-         ))}
-        </ul>
-      </div>
+          <h2
+            className="text-[16px] cursor-pointer"
+            onClick={(e) => handleUlAndCategory(e)}
+            id={category.id}
+          >
+            {category.categoryName}
+          </h2>
+          <ul
+            className={`pl-5  flex-col gap-5 mt-5 ${
+              id == category.id ? "flex" : "hidden"
+            }`}
+          >
+            {category.subCategories.map((subCategory, index) => (
+              <li key={index} className="cursor-pointer">
+                {subCategory}
+              </li>
+            ))}
+          </ul>
+        </div>
       ))}
     </div>
   );
