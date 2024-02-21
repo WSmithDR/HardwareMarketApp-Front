@@ -4,22 +4,8 @@ import {Filters} from "./filters/Filters";
 import { Products } from "./products/Products";
 import { useSelector } from "react-redux";
 
-export const StoreContainer = () => { 
 
 
-  // productos totales del estado global.
-  const products = useSelector(state => state.products.products)
-  
-
-  // estado para verificar si se eligio o no una categoria, caso contrario se queda en null. 
-  const selectedCategory = useSelector(state => state.products.categorySelected)
-
-  const prodsPorCategory = products.filter((prod) => prod.category == categorySelected)
-
-  const prodsPorCategoryAndShippingFree = prodsPorCategory.filter((prod) =>   shippingIsfree == true   && prod.deliveryMethod[0] == "homePickup")
-  console.log("hola")
-  
->>>>>>>>> Temporary merge branch 2
 
 export const StoreContainer = () => {
   const products = useSelector((state) => state.products.products);
