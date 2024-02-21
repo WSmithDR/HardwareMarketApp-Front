@@ -4,7 +4,7 @@ export const loginFetch = async(values) => {
     
   const res = await axios.post("https://hardwaremarketapp-back.onrender.com/v1/api/sessions/login",values)
  
-  console.log(res)
+
   return res.data
 }
 
