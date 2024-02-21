@@ -4,15 +4,15 @@
 import { Link } from "react-router-dom";
 
 export const Product = (prop) => {
-  const { title, description, price, trademark, stock } = prop;
+  const { title, description, price, trademark, stock , thumbnails, id } = prop;
 
   return (
     <div className="flex bg-[#DCDBDB] shadow-lg rounded-[20px] ">
       <div className="flex justify-center items-center w-30 h-[220px]">
-        <Link to="/detail">
+        <Link to={`/detail/${id}`}>
           <img
             className="h-[220px] w-[100%] rounded-l-[20px] cursor-pointer"
-            src="./public/images/grafica.jpg"
+            src={thumbnails[0]}
             alt={title}
           />
         </Link>

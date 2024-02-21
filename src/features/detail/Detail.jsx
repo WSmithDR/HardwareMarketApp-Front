@@ -1,6 +1,23 @@
+import { useParams } from "react-router-dom";
 import { StoreNavBar } from "../store/containers/navigation/StoreNavBar";
-
+import { useDispatch, useSelector } from "react-redux";
+import * as productsActions from "../../redux/productsReducer/productsAction"
+import { addCartFetch } from "./productDetail";
 export const Detail = () => {
+  const {productId} = useParams()
+  const prods = useSelector(state => state.products.products)
+  const findProd = prods.find(prod => prod._id == productId)
+  const userCart = useSelector(state => state.user.user)
+  const userId = useSelector(state => state.user.user.user.userId)
+
+ 
+  const dispatch = useDispatch()
+  const handleAddCart = async (e) => {
+    e.preventDefault()
+    const res =  await  addCartFetch(findProd, userCart , userId)
+
+};
+
   return (
     <div className="">
       <StoreNavBar />
@@ -8,7 +25,7 @@ export const Detail = () => {
       <div className="flex items-center justify-center p-10">
         <div>
           <img
-            src="./public/images/grafica.jpg"
+            src={`${findProd.thumbnails[0]}`}
             alt=""
             className="w-80 h-80 rounded-l-lg"
           />
@@ -19,8 +36,8 @@ export const Detail = () => {
             Tarjeta de video RX 550, 4 Gb memoria, disipador de calor OC puerto
             HDMI
           </p>
-          <button className="h-9 w-40 absolute left-[620px] top-[400px]  bg-colorButtons text-white font-josefin">
-            Comprar Ahora
+          <button className="h-9 w-40 absolute left-[620px] top-[400px]  bg-colorButtons text-white font-josefin" onClick={(e) => handleAddCart(e)}>
+            Agregar al carrito
           </button>
           <button className="h-9 w-40 absolute right-[300px] top-[400px] font-josefin bg-colorButtons text-white">
             Negociar

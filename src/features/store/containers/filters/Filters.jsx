@@ -19,7 +19,7 @@ export const Filters = () => {
       <div className=" max-[425px]:w-[350px] max-[425px]:flex justify-between">
         <div>
           <h1 className="text-[20px]">Tarjetas de video</h1>
-          <p>{products.length} Resultados</p>
+          <p>{products?.length} Resultados</p>
         </div>
       </div>
       <div

@@ -4,14 +4,28 @@ import logoSearch from "../../../../../public/images/isearch.png";
 import logoCart from "../../../../../public/images/carFast.png";
 import { useDispatch, useSelector } from "react-redux";
 import * as userActions from "../../../../redux/userReducer/userActions";
-
+import * as productsActions from "../../../../redux/productsReducer/productsAction"
 import { PropTypes } from "prop-types";
+import { useState } from "react";
 
 export const StoreNavBar = ({ handleCart }) => {
   const user = useSelector((state) => state.user.user);
+  const products = useSelector(state => state.products.products)
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+  const [inputProd , setInputProd] = useState()
+  const handleInput = (e) => {
+    e.preventDefault()
+    setInputProd(e.target.value)
+  
+  }
+
+  const filterProdsForInput =  products.filter(item => item.title.toLowerCase().includes(inputProd))
+  if(filterProdsForInput){
+    dispatch(productsActions.inputProdAction(filterProdsForInput))
+  }
+
+
   return (
     <>
       <header
@@ -76,9 +90,10 @@ export const StoreNavBar = ({ handleCart }) => {
             <input
               type="text"
               placeholder="Buscar"
+              onChange={(e) => handleInput(e)}
               className="h-8 rounded-l-[10px] w-[100px] p-3 
               font-josefin bg-[#E8E1E1] text-black 
-              outline-none text-[15px] sm:w-[300px] "
+              outline-none text-[15px] sm:w-[300px]"
             />
             <div
               className="h-8 rounded-r-[10px] w-10 p-2 font-josefin bg-colorStar
@@ -112,15 +127,15 @@ export const StoreNavBar = ({ handleCart }) => {
 
         {/* Links Navegacion */}
         <div className="space-x-8 hidden xl:flex">
-          <a href="#" className="font-josefin text-white px-2 py-3">
+          <a  className="font-josefin text-white px-2 py-3">
             {user?.user ? (
-              <div className="flex justify-center items-center h-10 w-10 rounded-[15px] bg-colorStar">
+              <div className="flex justify-center items-center h-10 w-10 rounded-[15px] bg-colorStar hover:cursor-pointer">
                 <p onClick={() => navigate("/profile-detail")}>
                   {user.user.first_name[0] + user.user.last_name[0]}
                 </p>
               </div>
             ) : (
-              <p onClick={() => navigate("/login")}>Iniciar Sesión</p>
+              <p className="hover:cursor-pointer"  onClick={() => navigate("/login")}>Iniciar Sesión</p>
             )}
           </a>
         </div>
@@ -139,7 +154,7 @@ export const StoreNavBar = ({ handleCart }) => {
 
         {user?.user ? (
           <p
-            className="text-white cursor-pointer text-[13px] hidden"
+            className="text-white cursor-pointer text-[13px] "
             onClick={() => dispatch(userActions.userLogOutAction())}
           >
             Cerrar Sesion

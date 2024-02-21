@@ -8,6 +8,8 @@ const Navbar2 = () => {
           <div className="flex justify-between items-center w-[80vw] h-[30px] bg-colorStar text-white ">
             
             <p className="hover:cursor-pointer"  onClick={() => navigate("/startPage")}>Inicio</p>
+            <p className="hover:cursor-pointer"  onClick={() => navigate("/contact")}>Contacto</p>
+            <p className="hover:cursor-pointer"  onClick={() => navigate("/about")}>Acerca de </p>
           </div>
       
       </header>
